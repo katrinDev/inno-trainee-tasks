@@ -32,7 +32,6 @@ img {
 }
 
 header div {
-  flex-basis: 73px;
   display: flex;
   justify-content: space-between;
   align-items: center;

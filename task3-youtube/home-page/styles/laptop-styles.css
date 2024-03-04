@@ -1,0 +1,75 @@
+@media only screen and (min-width: 961px) {
+  header {
+    padding: 20px 3.65vw 16px 32px;
+  }
+
+  #menu-icon {
+    margin-right: 28px;
+  }
+
+  #youtube-name {
+    margin-right: 3.02vw;
+  }
+
+  #search-icon {
+    display: none;
+  }
+
+  .input-container {
+    width: 43.23vw;
+    position: relative;
+  }
+
+  .input-field {
+    width: 100%;
+    border-radius: 30px;
+    color: #30384c;
+    background-color: #ebebeb;
+    padding: 14px 18px 14px 23px;
+    text-align: left;
+    border: none;
+  }
+
+  .input-icon-button {
+    position: absolute;
+    right: 18px;
+    top: 13px;
+    border: none;
+  }
+
+  .input-icon-button img {
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+  }
+
+  #header-right {
+    width: 15vw;
+  }
+
+  .bell-container {
+    position: relative;
+    width: 22px;
+  }
+
+  #bell-icon {
+    width: 100%;
+  }
+
+  .chip {
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50px;
+    background-color: #ff0000;
+    border: 1px solid #fff;
+    z-index: 999;
+    text-align: center;
+    padding: 2px 5px;
+  }
+}
