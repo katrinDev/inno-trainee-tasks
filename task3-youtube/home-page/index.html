@@ -15,145 +15,634 @@
     <link rel="stylesheet" href="styles/mobile-styles.css" />
   </head>
   <body>
-    <header>
+    <header id="page-header">
       <div id="header-left">
-        <img src="static/icons/menu-icon.png" alt="menu icon" id="menu-icon" />
-        <img
-          src="static/icons/youtube-logo.png"
-          alt="youtube logo"
-          id="youtube-logo"
-        />
-        <span id="youtube-name">YouTube</span>
+        <div class="side-menu-open">
+          <img
+            src="static/icons/menu-icon.svg"
+            alt="menu icon"
+            id="menu-icon"
+          />
+          <img
+            src="static/icons/youtube-logo.svg"
+            alt="youtube logo"
+            id="youtube-logo"
+          />
+          <img
+            src="static/icons/youtube-name.svg"
+            alt="youtube logo name"
+            id="youtube-name"
+          />
+        </div>
+
         <div class="input-container">
           <input type="text" placeholder="Search" class="input-field" />
           <button class="input-icon-button">
-            <img src="static/icons/search.png" alt="search icon" />
+            <img src="static/icons/search-icon.svg" alt="search icon" />
           </button>
         </div>
       </div>
+
       <div id="header-right">
         <img
-          src="static/icons/camera-icon.png"
+          src="static/icons/camera-icon.svg"
           alt="camera icon"
           class="wide-screen-icon"
+          id="camera-icon"
         />
         <img
-          src="static/icons/dots-icon.png"
+          src="static/icons/dots-icon.svg"
           alt="dots icon"
           class="wide-screen-icon"
+          id="dots-icon"
         />
         <div class="bell-container">
           <img
-            src="static/icons/bell-icon.png"
+            src="static/icons/bell-icon.svg"
             alt="bell icon"
             class="wide-screen-icon"
             id="bell-icon"
           />
           <div class="chip">3</div>
         </div>
-        <img src="static/icons/search.png" alt="search icon" id="search-icon" />
         <img
-          src="static/images/user-avatar.png"
+          src="static/icons/search-icon.svg"
+          alt="search icon"
+          id="search-icon"
+        />
+        <img
+          src="static/images/user-avatar.svg"
           alt="user avatar"
           id="user-avatar"
         />
       </div>
     </header>
 
-    <div class="content">
-      <div class="video">
-        <div class="video-image-block">
-          <img
-            src="static/images/dollie-1.png"
-            alt="Dollie first video"
-            class="video-image"
-          />
-          <div class="timer">4:15</div>
-        </div>
-        <div class="description">
-          <p class="video-title">A Brief History Of Creation</p>
-          <div>
-            <p class="views-info">80k views&nbsp; · &nbsp;3 days ago</p>
-            <p class="author">Dollie Blair</p>
+    <div class="main-container">
+      <div class="content">
+        <article id="dollie-blair-article">
+          <header class="article-header">
+            <div class="article-title">
+              <img
+                src="static/images/dollie-avatar.svg"
+                alt="Dollie Blair avatar"
+                id="dollie-avatar"
+              />
+              <h2>Dollie Blair</h2>
+            </div>
+
+            <div class="shifts">
+              <img
+                src="static/icons/left-arrow.svg"
+                alt="left shift arrow icon"
+              />
+
+              <img
+                src="static/icons/right-arrow.svg"
+                alt="right shift arrow icon"
+              />
+            </div>
+          </header>
+
+          <div class="videos">
+            <div class="video">
+              <div class="video-image-block">
+                <picture>
+                  <source
+                    media="(min-width: 401px)"
+                    srcset="static/images/dollie-1-laptop.svg"
+                  />
+                  <source
+                    media="(max-width: 400px)"
+                    srcset="static/images/dollie-1.svg"
+                  />
+                  <img
+                    src="static/images/dollie-1.svg"
+                    alt="Dollie first video"
+                    class="video-image"
+                  />
+                </picture>
+                <div class="timer">4:15</div>
+              </div>
+              <div class="description">
+                <p class="video-title">A Brief History Of Creation</p>
+                <div>
+                  <p class="views-info">80k views&nbsp; · &nbsp;3 days ago</p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block">
+                <picture>
+                  <source
+                    media="(min-width: 401px)"
+                    srcset="static/images/dollie-2-laptop.svg"
+                  />
+                  <source
+                    media="(max-width: 400px)"
+                    srcset="static/images/dollie-2.svg"
+                  />
+
+                  <img
+                    src="static/images/dollie-2.svg"
+                    alt="Dollie second video"
+                    class="video-image"
+                  />
+                </picture>
+                <div class="timer">8:00</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Selecting The Right Hotel</p>
+                <div>
+                  <p class="views-info">
+                    123k views&nbsp; · &nbsp;1 months ago
+                  </p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block">
+                <picture>
+                  <source
+                    media="(min-width: 401px)"
+                    srcset="static/images/dollie-3-laptop.svg"
+                  />
+                  <source
+                    media="(max-width: 400px)"
+                    srcset="static/images/dollie-3.svg"
+                  />
+
+                  <img
+                    src="static/images/dollie-3.svg"
+                    alt="Dollie third video"
+                    class="video-image"
+                  />
+                </picture>
+                <div class="timer">5:32</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Asteroids</p>
+                <div>
+                  <p class="views-info">43k views&nbsp; · &nbsp;12 days ago</p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block">
+                <picture>
+                  <source
+                    media="(min-width: 401px)"
+                    srcset="static/images/dollie-4-laptop.svg"
+                  />
+                  <source
+                    media="(max-width: 400px)"
+                    srcset="static/images/dollie-4.svg"
+                  />
+
+                  <img
+                    src="static/images/dollie-4.svg"
+                    alt="Dollie forth video"
+                    class="video-image"
+                  />
+                </picture>
+                <div class="timer">6:40</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Telescopes 101</p>
+                <div>
+                  <p class="views-info">11k views&nbsp; · &nbsp;6 months ago</p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block">
+                <img
+                  src="static/images/dollie-5.svg"
+                  alt="Dollie fifth video"
+                  class="video-image"
+                />
+                <div class="timer">1:45</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Medical Care Is Just</p>
+                <div>
+                  <p class="views-info">18k views&nbsp; · &nbsp;2 days ago</p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block">
+                <img
+                  src="static/images/dollie-6.png"
+                  alt="Dollie sixth video"
+                  class="video-image"
+                />
+                <div class="timer">2:12</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Moon Gazing</p>
+                <div>
+                  <p class="views-info">67k views&nbsp; · &nbsp;4 months ago</p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article id="recommended">
+          <header class="article-header">
+            <h2>Recommended</h2>
+
+            <div class="shifts">
+              <img
+                src="static/icons/left-arrow.svg"
+                alt="left shift arrow icon"
+              />
+
+              <img
+                src="static/icons/right-arrow.svg"
+                alt="right shift arrow icon"
+              />
+            </div>
+          </header>
+
+          <div class="videos">
+            <div class="video">
+              <div class="video-image-block recommended-image-block">
+                <img
+                  src="static/images/recommended-1.png"
+                  alt="first recommended video image"
+                  class="video-image recommended-image"
+                />
+                <div class="timer">3:40</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Dude You Re Getting A Telescope</p>
+                <div>
+                  <p class="views-info">34k views&nbsp; · &nbsp;5 months ago</p>
+                  <p class="author">Gussie French</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block recommended-image-block">
+                <img
+                  src="static/images/recommended-2.png"
+                  alt="second recommended video image"
+                  class="video-image recommended-image"
+                />
+                <div class="timer">2:12</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Moon Gazing</p>
+                <div>
+                  <p class="views-info">
+                    54k views&nbsp; · &nbsp;11 months ago
+                  </p>
+                  <p class="author">Edward Osborne</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block recommended-image-block">
+                <img
+                  src="static/images/recommended-3.png"
+                  alt="second recommended video image"
+                  class="video-image recommended-image"
+                />
+                <div class="timer">2:12</div>
+              </div>
+              <div class="description">
+                <p class="video-title">Moon Gazing</p>
+                <div>
+                  <p class="views-info">
+                    125k views&nbsp; · &nbsp;4 months ago
+                  </p>
+                  <p class="author">Dollie Blair</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <header class="article-header">
+            <div class="article-title">
+              <img
+                src="static/icons/food-icon.svg"
+                alt="food icon"
+                id="food-icon"
+              />
+              <div>
+                <h2>Food & Drink</h2>
+                <p id="article-sub-title">Recommended channel for you</p>
+              </div>
+            </div>
+
+            <div class="article-left-header">
+              <button>Subscribe 2.3m</button>
+
+              <div class="shifts">
+                <img
+                  src="static/icons/left-arrow.svg"
+                  alt="left shift arrow icon"
+                />
+
+                <img
+                  src="static/icons/right-arrow.svg"
+                  alt="right shift arrow icon"
+                />
+              </div>
+            </div>
+          </header>
+
+          <div class="videos">
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/cone.png"
+                  alt="cone food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">7:36</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Astronomy Or Astrology</p>
+                <div>
+                  <p class="views-info">
+                    240k views&nbsp; · &nbsp;4 months ago
+                  </p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/cherry.png"
+                  alt="cherry food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">2:19</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Advertising Outdoors</p>
+                <div>
+                  <p class="views-info">13k views&nbsp; · &nbsp;15 days ago</p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/pasta.png"
+                  alt="pasta food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">9:05</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Radio Astronomy</p>
+                <div>
+                  <p class="views-info">1k views&nbsp; · &nbsp;11 months ago</p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/mandarin.png"
+                  alt="mandarin food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">3:40</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">A Good Autoresponder</p>
+                <div>
+                  <p class="views-info">45k views&nbsp; · &nbsp;2 months ago</p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/donuts.png"
+                  alt="donuts food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">3:40</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Baby Monitor Technology</p>
+                <div>
+                  <p class="views-info">86k views&nbsp; · &nbsp;7 days ago</p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="video">
+              <div class="video-image-block food-image-block">
+                <img
+                  src="static/images/watermelon.png"
+                  alt="watermelon food video image"
+                  class="video-image food-image"
+                />
+                <div class="timer">4:15</div>
+              </div>
+
+              <div class="description">
+                <p class="video-title">Asteroids</p>
+                <div>
+                  <p class="views-info">
+                    123k views&nbsp; · &nbsp;4 months ago
+                  </p>
+                  <p class="author">Food & Drink</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <div class="video">
-        <div class="video-image-block">
-          <img
-            src="static/images/dollie-2.png"
-            alt="Dollie second video"
-            class="video-image"
-          />
-          <div class="timer">8:00</div>
-        </div>
-        <div class="description">
-          <p class="video-title">Selecting The Right Hotel</p>
-          <div>
-            <p class="views-info">123k views&nbsp; · &nbsp;1 months ago</p>
-            <p class="author">Dollie Blair</p>
+      <aside>
+        <nav>
+          <div class="nav-block home">
+            <div>
+              <img src="static/icons/home-icon.svg" alt="home page icon" />
+            </div>
+            <p>Home</p>
           </div>
-        </div>
-      </div>
 
-      <div class="video">
-        <div class="video-image-block">
-          <img
-            src="static/images/dollie-3.png"
-            alt="Dollie third video"
-            class="video-image"
-          />
-          <div class="timer">5:32</div>
-        </div>
-        <div class="description">
-          <p class="video-title">Asteroids</p>
-          <div>
-            <p class="views-info">43k views&nbsp; · &nbsp;12 days ago</p>
-            <p class="author">Dollie Blair</p>
+          <div class="nav-block">
+            <div>
+              <img src="static/icons/fire-icon.svg" alt="trending page icon" />
+            </div>
+            <p>Trending</p>
           </div>
-        </div>
-      </div>
 
-      <div class="video">
-        <div class="video-image-block">
-          <img
-            src="static/images/dollie-4.png"
-            alt="Dollie forth video"
-            class="video-image"
-          />
-          <div class="timer">6:40</div>
-        </div>
-        <div class="description">
-          <p class="video-title">Telescopes 101</p>
-          <div>
-            <p class="views-info">11k views&nbsp; · &nbsp;6 months ago</p>
-            <p class="author">Dollie Blair</p>
+          <div class="nav-block">
+            <div>
+              <img
+                src="static/icons/many-folders-icon.svg"
+                alt="subscriptions page icon"
+              />
+            </div>
+            <p>Subscriptions</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img src="static/icons/folder-icon.svg" alt="library page icon" />
+            </div>
+            <p>Library</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img
+                src="static/icons/history-icon.svg"
+                alt="history page icon"
+              />
+            </div>
+            <p>History</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img
+                src="static/icons/alarm-icon.svg"
+                alt="watch later page icon"
+              />
+            </div>
+            <p>Watch later</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img
+                src="static/icons/star-icon.svg"
+                alt="favourites page icon"
+              />
+            </div>
+            <p>Favourites</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img
+                src="static/icons/heart-icon.svg"
+                alt="liked videos page icon"
+              />
+            </div>
+            <p>Liked videos</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img src="static/icons/music-icon.svg" alt="music page icon" />
+            </div>
+            <p>Music</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img src="static/icons/games-icon.svg" alt="games page icon" />
+            </div>
+            <p>Games</p>
+          </div>
+
+          <div class="nav-block">
+            <div>
+              <img src="static/icons/more-icon.svg" alt="show more arrow" />
+            </div>
+            <p>Show more</p>
+          </div>
+        </nav>
+
+        <div class="subscriptions">
+          <h3>Subscriptions</h3>
+          <div class="subs-block">
+            <img
+              src="static/images/subs-1.svg"
+              alt="first subscription avatar"
+            />
+            <p>Gussie Singleton</p>
+          </div>
+
+          <div class="subs-block">
+            <img
+              src="static/images/subs-2.svg"
+              alt="second subscription avatar"
+            />
+            <p>Nora Francis</p>
+          </div>
+
+          <div class="subs-block">
+            <img
+              src="static/images/subs-3.svg"
+              alt="third subscription avatar"
+            />
+            <p>Belle Briggs</p>
+          </div>
+
+          <div class="subs-block">
+            <img
+              src="static/images/subs-4.svg"
+              alt="fourth subscription avatar"
+            />
+            <p>Eunice Cortez</p>
+          </div>
+
+          <div class="subs-block">
+            <img
+              src="static/images/subs-5.svg"
+              alt="fifth subscription avatar"
+            />
+            <p>Emma Hanson</p>
+          </div>
+
+          <div class="subs-block">
+            <img
+              src="static/images/subs-6.svg"
+              alt="sixth subscription avatar"
+            />
+            <p>Leah Berry</p>
           </div>
         </div>
-      </div>
+
+        <div class="settings-block">
+          <img src="static/icons/settings-icon.svg" alt="settings icon" />
+          <p>Settings</p>
+        </div>
+      </aside>
     </div>
-
-    <nav>
-      <div class="nav-block home">
-        <img src="static/icons/home-icon.png" alt="home page image" />
-        <p>Home</p>
-      </div>
-      <div class="nav-block">
-        <img src="static/icons/fire-icon.png" alt="trending page image" />
-        <p>Trending</p>
-      </div>
-      <div class="nav-block">
-        <img
-          src="static/icons/folders-icon.png"
-          alt="subscriptions page image"
-        />
-        <p>Subscriptions</p>
-      </div>
-      <div class="nav-block">
-        <img src="static/icons/one-folder-icon.png" alt="library page image" />
-        <p>Library</p>
-      </div>
-    </nav>
   </body>
 </html>

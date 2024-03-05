@@ -5,12 +5,11 @@
 }
 
 body {
-  height: 100vh;
   font-family: "Mulish", sans-serif;
   font-weight: 400;
 }
 
-header {
+#page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,11 +26,7 @@ img {
   object-fit: contain;
 }
 
-#youtube-logo {
-  margin-right: 3px;
-}
-
-header div {
+#page-header > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,12 +39,6 @@ header div {
   width: 100%;
 }
 
-#youtube-name {
-  font-family: "Roboto", sans-serif;
-  font-size: 21px;
-  font-weight: 900;
-}
-
 .video-title {
   font-size: 16px;
   font-weight: 700;
@@ -57,6 +46,7 @@ header div {
 
 .video-image {
   width: 100%;
+  border-radius: 14px;
 }
 
 .video-image-block {
@@ -96,11 +86,38 @@ header div {
   color: #ff0000;
 }
 
-nav {
+aside {
   color: #898989;
 }
 
 .nav-block {
   display: flex;
   align-items: center;
+}
+
+h3 {
+  color: #000;
+}
+
+article {
+  width: 100%;
+}
+
+.side-menu-open {
+  display: flex;
+}
+
+#article-sub-title {
+  color: #c2c2c2;
+}
+
+.article-title {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.food-image {
+  height: 100%;
+  object-fit: cover;
 }
