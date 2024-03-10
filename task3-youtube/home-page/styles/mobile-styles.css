@@ -1,4 +1,4 @@
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   body {
     margin-top: 60px;
   }
@@ -64,7 +64,7 @@
     display: none;
   }
 
-  #youtube-logo {
+  #youtube-icon {
     margin-right: 3px;
   }
 
@@ -84,7 +84,7 @@
     display: none;
   }
 
-  .article-left-header > button {
+  .article-right-header > button {
     width: 104px;
     height: 30px;
     background-color: #ff0000;
@@ -103,8 +103,9 @@
     margin-bottom: 20px;
   }
 
-  .food-image-block {
-    height: 300px;
+  .food-image {
+    object-fit: cover;
+    max-height: 400px;
   }
 
   #dollie-avatar {

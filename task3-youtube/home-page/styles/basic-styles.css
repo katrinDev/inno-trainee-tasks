@@ -23,7 +23,7 @@ body {
 }
 
 img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 #page-header > div {
@@ -119,5 +119,16 @@ article {
 
 .food-image {
   height: 100%;
-  object-fit: cover;
+}
+
+#youtube-logo {
+  object-fit: contain;
+}
+
+.input-icon-button {
+  background-color: #ebebeb;
+}
+
+.subscriptions img {
+  object-fit: contain;
 }
