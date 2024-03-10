@@ -67,6 +67,7 @@ h3 {
   .settings-block {
     display: flex;
     gap: 12px;
+    align-items: center;
   }
 
   .main-container {
