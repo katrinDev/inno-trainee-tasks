@@ -26,6 +26,14 @@ img {
   object-fit: cover;
 }
 
+#youtube-logo {
+  object-fit: contain;
+}
+
+.input-icon-button {
+  background-color: #ebebeb;
+}
+
 #page-header > div {
   display: flex;
   justify-content: space-between;
@@ -77,28 +85,6 @@ img {
   font-size: 13px;
 }
 
-.description div:first-of-type {
-  display: flex;
-  justify-content: space-between;
-}
-
-.home {
-  color: #ff0000;
-}
-
-aside {
-  color: #898989;
-}
-
-.nav-block {
-  display: flex;
-  align-items: center;
-}
-
-h3 {
-  color: #000;
-}
-
 article {
   width: 100%;
 }
@@ -121,14 +107,28 @@ article {
   height: 100%;
 }
 
-#youtube-logo {
-  object-fit: contain;
-}
-
-.input-icon-button {
-  background-color: #ebebeb;
-}
-
 .subscriptions img {
   object-fit: contain;
+}
+
+.description div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home {
+  color: #ff0000;
+}
+
+aside {
+  color: #898989;
+}
+
+.nav-block {
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  color: #000;
 }

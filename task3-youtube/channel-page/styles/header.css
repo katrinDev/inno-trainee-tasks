@@ -9,6 +9,14 @@ body {
   font-weight: 400;
 }
 
+img {
+  object-fit: cover;
+}
+
+.main-container {
+  height: 100vh;
+}
+
 #page-header {
   display: flex;
   justify-content: space-between;
@@ -91,6 +99,26 @@ body {
   .bell-container {
     position: relative;
     line-height: 0;
+  }
+
+  #menu-icon {
+    width: 1.04vw;
+  }
+
+  #camera-icon {
+    width: 1.4vw;
+  }
+
+  #dots-icon {
+    width: 1.09vw;
+  }
+
+  #bell-icon {
+    width: 1.146vw;
+  }
+
+  #user-avatar {
+    width: 2.083vw;
   }
 
   .chip {

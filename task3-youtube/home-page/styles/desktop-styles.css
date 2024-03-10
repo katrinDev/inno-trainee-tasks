@@ -71,14 +71,14 @@
     color: #fff;
     font-size: 0.625vw;
     font-weight: bold;
-    width: 0.94vw;
-    height: 0.94vw;
+    width: 80%;
+    height: 70%;
     border-radius: 50px;
     background-color: #ff0000;
     border: 1px solid #fff;
     z-index: 999;
     text-align: center;
-    padding: 0.7vh 0;
+    padding: 35% 0;
   }
 
   .main-container {
