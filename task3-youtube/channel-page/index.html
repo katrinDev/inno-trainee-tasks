@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Youtube Design</title>
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/content.css" />
-    <link rel="stylesheet" href="styles/nav.css" />
+
     <link rel="stylesheet" href="https://use.typekit.net/zew0oae.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+
+    <link rel="stylesheet" href="styles/content.css" />
+    <link rel="stylesheet" href="styles/mobile-content.css" />
   </head>
   <body>
     <header id="page-header">
@@ -129,10 +132,16 @@
             <p>Home</p>
             <p>Videos</p>
             <p>Playlists</p>
-            <p>Channels</p>
-            <p>Discussion</p>
-            <p>About</p>
-            <img src="../static/icons/search-icon.svg" alt="search icon" />
+            <p class="desktop-tab">Channels</p>
+            <p class="desktop-tab">Discussion</p>
+            <p class="desktop-tab">About</p>
+            <img
+              src="../static/icons/search-icon.svg"
+              alt="search icon"
+              class="desktop-tab"
+            />
+
+            <img src="static/icons/more-tab-icon.svg" alt="more icon" />
           </div>
 
           <article id="main-video-container">
