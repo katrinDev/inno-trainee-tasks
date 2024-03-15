@@ -1,38 +1,41 @@
 @media only screen and (max-width: 600px) {
   body {
-    margin-top: 60px;
+    margin-top: 3.75rem;
   }
 
   #page-header {
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
   }
 
   #page-header > div {
-    flex-basis: 73px;
+    flex-basis: 4.5625rem;
   }
 
   #menu-icon,
   .input-container,
-  .wide-screen-icon {
+  .wide-screen-button {
     display: none;
   }
 
   #user-avatar {
-    width: 30px;
+    width: 1.875rem;
   }
 
   .bell-container {
     display: none;
   }
 
-  nav {
+  .first-nav-part {
     display: flex;
     justify-content: space-between;
     align-items: end;
     border-top: 1px solid #f1f1f1;
-    margin-top: 15px;
-    padding: 12px 22px 11px 24px;
-    font-size: 10px;
+    margin-top: 0.9375rem;
+    padding: 0.75rem 1.375rem 0.6875rem 1.5rem;
+  }
+
+  .first-nav-part span {
+    font-size: 0.625rem;
   }
 
   .nav-block {
@@ -41,12 +44,20 @@
     align-items: center;
   }
 
-  nav > div:nth-child(n + 5) {
+  .second-nav-part {
     display: none;
   }
 
-  #youtube-icon {
-    margin-right: 3px;
+  #user-avatar {
+    border-radius: 50px;
+    width: 1.875rem;
+  }
+
+  #dollie-avatar,
+  #plate-icon {
+    border-radius: 50px;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .shifts,
@@ -58,23 +69,17 @@
   .videos {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem;
   }
 
   .article-right-header > button {
-    width: 104px;
-    height: 30px;
-    background-color: #ff0000;
-    color: #fff;
-    border-radius: 30px;
-    border: none;
-    margin-top: 10px;
-    margin-left: 72px;
+    margin-top: 0.625rem;
+    margin-left: 4rem;
   }
 
   .content {
-    padding: 0 16px;
-    gap: 49px;
+    padding: 0 1rem;
+    gap: 3.0625rem;
   }
 
   .video {
@@ -83,19 +88,23 @@
 
   .video-image-block {
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
 
   .article-header {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .food-image {
     object-fit: cover;
-    max-height: 400px;
+    max-height: 25rem;
+  }
+
+  .dollie-image {
+    max-height: 9.375rem;
   }
 
   #dollie-avatar {
-    width: 40px;
+    width: 2.5rem;
   }
 }

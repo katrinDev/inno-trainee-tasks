@@ -26,7 +26,8 @@
     border-radius: 50%;
   }
 
-  #search-icon-button {
+  #search-icon-button,
+  .mobile {
     display: none;
   }
 
@@ -229,15 +230,5 @@
     gap: 2.5rem;
     align-items: center;
     align-self: flex-end;
-  }
-
-  .article-right-header > button {
-    min-width: 9.625rem;
-    min-height: 2.5rem;
-    background-color: #ff0000;
-    color: #fff;
-    border-radius: 30px;
-    border: none;
-    padding: 0.625rem 1.1875rem;
   }
 }

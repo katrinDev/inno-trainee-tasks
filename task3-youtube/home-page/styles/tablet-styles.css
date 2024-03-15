@@ -232,88 +232,14 @@
     align-self: flex-end;
   }
 
-  .article-right-header > button {
+  .article-right-header > button,
+  .mobile {
     display: none;
   }
+}
 
-  /* lower old styles */
-  /* .article-title {
-    gap: 10px;
+@media only screen and (min-width: 601px) and (max-width: 670px) {
+  #plate-icon {
+    height: 2.5rem;
   }
-
-  .article-title > div:first-of-type {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #article-sub-title {
-    font-size: 13px;
-  }
-
-  .content {
-    margin-left: 20px;
-    padding: 10px 0px;
-    gap: 40px;
-    overflow: hidden;
-  }
-
-  .shifts,
-  .article-header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .article-header {
-    margin-bottom: 20px;
-    padding-right: 7.81vw;
-  }
-
-  .shifts {
-    gap: 10px;
-    align-items: end;
-  }
-
-  .shifts img {
-    width: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .videos {
-    display: flex;
-    gap: 40px;
-    overflow: hidden;
-    flex-wrap: nowrap;
-  }
-
-  .video-image {
-    min-width: 250px;
-  }
-
-  .recommended-image {
-    height: 100%;
-  }
-
-  .article-right-header {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    align-self: flex-end;
-  }
-
-  .article-right-header > button {
-    min-width: 8.02vw;
-    min-height: 3.33vh;
-    background-color: #ff0000;
-    color: #fff;
-    border-radius: 30px;
-    border: none;
-    padding: 10px 15px;
-  }
-
-  .food-image {
-    max-height: 250px;
-  } */
 }
