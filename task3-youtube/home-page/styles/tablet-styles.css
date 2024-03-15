@@ -4,39 +4,39 @@
   }
 
   #page-header {
-    padding: 12px 16px 12px 28px;
+    padding: 1.25rem 1rem 1rem 2rem;
   }
 
-  #menu-icon {
-    margin-right: 28px;
-    height: 17px;
-    width: 20px;
+  #header-left {
+    flex-basis: 70%;
+    gap: 3.75rem;
   }
 
   .side-menu-open {
     display: flex;
     align-items: center;
-    width: 164px;
-    margin-right: 3.2vw;
   }
 
-  #header-left {
-    align-items: baseline;
+  #menu-icon {
+    margin-right: 1.75rem;
   }
 
-  #youtube-icon {
-    margin-right: 3px;
+  #youtube-logo {
+    flex-shrink: 3;
   }
 
-  .wide-screen-icon,
-  #search-icon {
+  #user-avatar {
+    width: 2.5rem;
+    border-radius: 50%;
+  }
+
+  #search-icon-button {
     display: none;
   }
 
   .input-container {
-    width: 43.23vw;
     position: relative;
-    height: 30px;
+    flex-basis: 78.7%;
   }
 
   .input-field {
@@ -44,27 +44,69 @@
     border-radius: 30px;
     color: #30384c;
     background-color: #ebebeb;
-    padding: 0.73vw 0.94vw 0.73vw 1.2vw;
+    padding: 0.875rem 1.125rem 0.875rem 1.5rem;
     text-align: left;
     border: none;
-    height: 100%;
   }
 
   .input-icon-button {
     position: absolute;
-    right: 1.2vw;
-    top: 0.68vw;
+    right: 1.125rem;
+    top: 0.8125rem;
     border: none;
   }
 
-  .input-icon-button img {
-    width: 13px;
+  .input-icon-button svg {
     vertical-align: middle;
+    object-fit: contain;
+  }
+
+  #header-right {
+    width: 7rem;
+  }
+
+  .bell-container {
+    position: relative;
+    line-height: 0;
+  }
+
+  #bell-icon {
+    width: 100%;
+  }
+
+  .chip {
+    display: inline-block;
+    position: absolute;
+    top: -0.375rem;
+    right: -0.25rem;
+    color: #fff;
+    font-size: 0.725rem;
+    font-weight: bold;
+    width: 80%;
+    height: 70%;
+    border-radius: 50px;
+    background-color: #ff0000;
+    border: 1px solid #fff;
+    z-index: 999;
+    text-align: center;
+    padding: 35% 0;
+  }
+
+  .wide-screen-button {
+    display: none;
   }
 
   .main-container {
+    margin-top: 5rem;
     display: flex;
-    margin-top: 70px;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  aside {
+    order: -1;
+    min-width: 5rem;
+    padding: 2.5rem 1rem;
   }
 
   .nav-block {
@@ -73,18 +115,129 @@
     margin-bottom: 20px;
   }
 
-  aside {
-    order: -1;
-    min-width: 80px;
-    padding: 10px 0;
-  }
-
-  .settings-block,
-  .subscriptions {
+  .aside-bottom {
     display: none;
   }
 
-  .article-title {
+  nav span {
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+  }
+
+  .nav-block {
+    gap: 0.8125rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .nav-block > div {
+    width: 1.1975rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .subs-block {
+    display: flex;
+    gap: 0.625rem;
+    margin-bottom: 1.4375rem;
+  }
+
+  .subscriptions > .subs-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .subscriptions img {
+    height: 1.625rem;
+    width: 1.625rem;
+    border-radius: 50%;
+  }
+
+  .settings-block {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  #dollie-avatar,
+  #plate-icon {
+    border-radius: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+
+  .content {
+    padding: 2.5rem 0 4rem;
+    gap: 3.0625rem;
+    overflow: hidden;
+  }
+
+  .shifts,
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .article-header {
+    margin-bottom: 1.875rem;
+    padding-right: 2rem;
+  }
+
+  .shifts {
+    gap: 0.675rem;
+    align-items: end;
+  }
+
+  /* content part  */
+  h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1.875rem;
+    line-height: 1.4125rem;
+  }
+
+  .videos {
+    display: flex;
+    gap: 2.5rem;
+    overflow: hidden;
+    flex-wrap: nowrap;
+  }
+
+  .video-image-block {
+    width: 15.625rem;
+    height: 9.375rem;
+  }
+
+  .recommended-image-block {
+    height: 15.625rem;
+    width: 25rem;
+  }
+
+  .article-title > div {
+    display: flex;
+    align-items: baseline;
+    gap: 1.1875rem;
+  }
+
+  .article-right-header {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    align-self: flex-end;
+  }
+
+  .article-right-header > button {
+    display: none;
+  }
+
+  /* lower old styles */
+  /* .article-title {
     gap: 10px;
   }
 
@@ -95,12 +248,6 @@
 
   #article-sub-title {
     font-size: 13px;
-  }
-
-  #user-avatar,
-  #dollie-avatar,
-  #food-icon {
-    width: 35px;
   }
 
   .content {
@@ -168,5 +315,5 @@
 
   .food-image {
     max-height: 250px;
-  }
+  } */
 }

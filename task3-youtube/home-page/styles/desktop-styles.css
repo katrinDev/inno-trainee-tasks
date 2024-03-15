@@ -8,6 +8,11 @@
     gap: 3.75rem;
   }
 
+  .side-menu-open {
+    display: flex;
+    align-items: center;
+  }
+
   #menu-icon {
     margin-right: 1.75rem;
   }
@@ -83,6 +88,8 @@
     padding: 35% 0;
   }
 
+  /* main container */
+
   .main-container {
     margin-top: 5rem;
     display: flex;
@@ -110,15 +117,51 @@
     gap: 3.6875rem;
   }
 
+  .aside-bottom {
+    gap: 6.5rem;
+  }
+
+  .nav-block {
+    gap: 0.8125rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .nav-block > div {
+    width: 1.1975rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .subs-block {
+    display: flex;
+    gap: 0.625rem;
+    margin-bottom: 1.4375rem;
+  }
+
+  .subscriptions > .subs-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .subscriptions img {
+    height: 1.625rem;
+    width: 1.625rem;
+    border-radius: 50%;
+  }
+
+  .settings-block {
+    display: flex;
+    gap: 0.75rem;
+  }
+
   #dollie-avatar,
   #plate-icon {
     border-radius: 50px;
     width: 3.125rem;
     height: 3.125rem;
-  }
-
-  .aside-bottom {
-    gap: 6.5rem;
   }
 
   .content {
@@ -143,46 +186,11 @@
     align-items: end;
   }
 
-  .nav-block {
-    gap: 0.8125rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .nav-block > div {
-    width: 1.1975rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-block:last-child {
-    margin-bottom: 0;
-  }
-
+  /* content part  */
   h3 {
     font-size: 1.125rem;
     margin-bottom: 1.875rem;
     line-height: 1.4125rem;
-  }
-
-  .subs-block {
-    display: flex;
-    gap: 0.625rem;
-    margin-bottom: 1.4375rem;
-  }
-
-  .subscriptions > .subs-block:last-child {
-    margin-bottom: 0;
-  }
-
-  .subscriptions img {
-    height: 1.625rem;
-    width: 1.625rem;
-    border-radius: 50%;
-  }
-
-  .settings-block {
-    display: flex;
-    gap: 0.75rem;
   }
 
   .videos {
@@ -208,19 +216,6 @@
   .recommended-image-block {
     height: 15.625rem;
     width: 100%;
-  }
-
-  .food-image-block {
-    height: 9.375rem;
-  }
-
-  .recommended-image {
-    height: 100%;
-  }
-
-  .side-menu-open {
-    display: flex;
-    align-items: center;
   }
 
   .article-title > div {
