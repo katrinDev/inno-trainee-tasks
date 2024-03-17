@@ -1,8 +1,12 @@
 @media only screen and (min-width: 601px) and (max-width: 1200px) {
-  body {
-    font-size: 10px;
+  .main-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
+  /* header part */
   #page-header {
     padding: 1.25rem 1rem 1rem 2rem;
   }
@@ -28,10 +32,6 @@
   #user-avatar {
     width: 2.5rem;
     border-radius: 50%;
-  }
-
-  #search-icon-button {
-    display: none;
   }
 
   .input-container {
@@ -96,13 +96,7 @@
     display: none;
   }
 
-  .main-container {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
+  /* aside part */
   aside {
     order: -1;
     min-width: 5rem;
@@ -196,12 +190,6 @@
   }
 
   /* content part  */
-  h3 {
-    font-size: 1.125rem;
-    margin-bottom: 1.875rem;
-    line-height: 1.4125rem;
-  }
-
   .videos {
     display: flex;
     gap: 2.5rem;

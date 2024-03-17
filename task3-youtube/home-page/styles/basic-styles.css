@@ -63,6 +63,13 @@ h4 {
   line-height: 1.255rem;
 }
 
+h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1.875rem;
+  line-height: 1.4125rem;
+  color: #000;
+}
+
 .video-image {
   width: 100%;
   height: 100%;
@@ -135,10 +142,6 @@ aside {
 .nav-block {
   display: flex;
   align-items: center;
-}
-
-h3 {
-  color: #000;
 }
 
 path {

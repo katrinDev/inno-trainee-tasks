@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+body {
+  font-family: "muli", sans-serif;
+  font-weight: 400;
+}
+
+img {
+  object-fit: cover;
+}
+
+h2 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+}
+
+h4 {
+  font-weight: bold;
+  line-height: 1.255rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.4119rem;
+  color: #000;
+}
+
+path {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+
+  fill: #c2c2c2;
+}
+
+#home-icon > path,
+#youtube-image > path {
+  fill: red;
+}
+
+#youtube-text > path,
+#menu-icon > path,
+#search-icon > path,
+#tree-dots-icon > path,
+.input-icon-button path {
+  fill: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+  display: flex;
+}

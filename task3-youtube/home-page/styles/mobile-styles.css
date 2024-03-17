@@ -13,16 +13,13 @@
 
   #menu-icon,
   .input-container,
+  .bell-container,
   .wide-screen-button {
     display: none;
   }
 
   #user-avatar {
     width: 1.875rem;
-  }
-
-  .bell-container {
-    display: none;
   }
 
   .first-nav-part {

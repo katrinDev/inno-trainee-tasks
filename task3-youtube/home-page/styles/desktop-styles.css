@@ -1,4 +1,5 @@
 @media only screen and (min-width: 1201px) {
+  /* header */
   #page-header {
     padding: 1.25rem 4.375rem 1rem 2rem;
   }
@@ -26,7 +27,6 @@
     border-radius: 50%;
   }
 
-  #search-icon-button,
   .mobile {
     display: none;
   }
@@ -188,11 +188,6 @@
   }
 
   /* content part  */
-  h3 {
-    font-size: 1.125rem;
-    margin-bottom: 1.875rem;
-    line-height: 1.4125rem;
-  }
 
   .videos {
     display: flex;
