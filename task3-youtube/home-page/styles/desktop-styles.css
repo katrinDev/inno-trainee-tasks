@@ -1,4 +1,15 @@
 @media only screen and (min-width: 1201px) {
+  .main-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4.125rem;
+  }
+
+  .mobile {
+    display: none;
+  }
+
   /* header */
   #page-header {
     padding: 1.25rem 4.375rem 1rem 2rem;
@@ -25,10 +36,6 @@
   #user-avatar {
     width: 2.5rem;
     border-radius: 50%;
-  }
-
-  .mobile {
-    display: none;
   }
 
   .input-container {
@@ -89,15 +96,7 @@
     padding: 35% 0;
   }
 
-  /* main container */
-
-  .main-container {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 4.125rem;
-  }
-
+  /* aside part */
   aside {
     order: -1;
     width: 13.9375rem;
@@ -158,35 +157,6 @@
     gap: 0.75rem;
   }
 
-  #dollie-avatar,
-  #plate-icon {
-    border-radius: 50px;
-    width: 3.125rem;
-    height: 3.125rem;
-  }
-
-  .content {
-    padding: 2.5rem 0 4rem;
-    gap: 3.0625rem;
-    overflow: hidden;
-  }
-
-  .shifts,
-  .article-header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .article-header {
-    margin-bottom: 1.875rem;
-    padding-right: 9.375rem;
-  }
-
-  .shifts {
-    gap: 0.675rem;
-    align-items: end;
-  }
-
   /* content part  */
 
   .videos {
@@ -225,5 +195,34 @@
     gap: 2.5rem;
     align-items: center;
     align-self: flex-end;
+  }
+
+  #dollie-avatar,
+  #plate-icon {
+    border-radius: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+
+  .content {
+    padding: 2.5rem 0 4rem;
+    gap: 3.0625rem;
+    overflow: hidden;
+  }
+
+  .shifts,
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .article-header {
+    margin-bottom: 1.875rem;
+    padding-right: 9.375rem;
+  }
+
+  .shifts {
+    gap: 0.675rem;
+    align-items: end;
   }
 }

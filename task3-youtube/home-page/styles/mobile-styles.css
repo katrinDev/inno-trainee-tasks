@@ -3,6 +3,7 @@
     margin-top: 3.75rem;
   }
 
+  /* header part */
   #page-header {
     padding: 0.75rem 1rem;
   }
@@ -19,9 +20,11 @@
   }
 
   #user-avatar {
+    border-radius: 50px;
     width: 1.875rem;
   }
 
+  /* aside part */
   .first-nav-part {
     display: flex;
     justify-content: space-between;
@@ -41,39 +44,13 @@
     align-items: center;
   }
 
-  .second-nav-part {
-    display: none;
-  }
-
-  #user-avatar {
-    border-radius: 50px;
-    width: 1.875rem;
-  }
-
-  #dollie-avatar,
-  #plate-icon {
-    border-radius: 50px;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .shifts,
+  .second-nav-part,
   .subscriptions,
   .settings-block {
     display: none;
   }
 
-  .videos {
-    display: flex;
-    flex-direction: column;
-    gap: 1.875rem;
-  }
-
-  .article-right-header > button {
-    margin-top: 0.625rem;
-    margin-left: 4rem;
-  }
-
+  /* content part */
   .content {
     padding: 0 1rem;
     gap: 3.0625rem;
@@ -86,6 +63,28 @@
   .video-image-block {
     width: 100%;
     margin-bottom: 0.5rem;
+  }
+
+  #dollie-avatar,
+  #plate-icon {
+    border-radius: 50px;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .shifts {
+    display: none;
+  }
+
+  .videos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+  }
+
+  .article-right-header > button {
+    margin-top: 0.625rem;
+    margin-left: 4rem;
   }
 
   .article-header {

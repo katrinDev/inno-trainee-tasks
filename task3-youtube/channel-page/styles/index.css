@@ -60,3 +60,22 @@ button {
   background-color: #fff;
   display: flex;
 }
+
+@media only screen and (min-width: 601px) {
+  .main-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .main-container {
+    gap: 4.125rem;
+  }
+}

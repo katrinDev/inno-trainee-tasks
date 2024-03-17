@@ -103,12 +103,6 @@
     padding: 2.5rem 1rem;
   }
 
-  .nav-block {
-    flex-direction: column;
-    font-size: 10px;
-    margin-bottom: 20px;
-  }
-
   .aside-bottom {
     display: none;
   }
@@ -118,6 +112,7 @@
   }
 
   nav {
+    flex-direction: column;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -125,6 +120,7 @@
   }
 
   .nav-block {
+    flex-direction: column;
     gap: 0.8125rem;
     margin-bottom: 1.75rem;
   }
@@ -139,25 +135,17 @@
     margin-bottom: 0;
   }
 
-  .subs-block {
+  /* content part  */
+  .videos {
     display: flex;
-    gap: 0.625rem;
-    margin-bottom: 1.4375rem;
+    gap: 2.5rem;
+    overflow: hidden;
+    flex-wrap: nowrap;
   }
 
-  .subscriptions > .subs-block:last-child {
-    margin-bottom: 0;
-  }
-
-  .subscriptions img {
-    height: 1.625rem;
-    width: 1.625rem;
-    border-radius: 50%;
-  }
-
-  .settings-block {
-    display: flex;
-    gap: 0.75rem;
+  .video-image-block {
+    width: 15.625rem;
+    height: 9.375rem;
   }
 
   #dollie-avatar,
@@ -187,19 +175,6 @@
   .shifts {
     gap: 0.675rem;
     align-items: end;
-  }
-
-  /* content part  */
-  .videos {
-    display: flex;
-    gap: 2.5rem;
-    overflow: hidden;
-    flex-wrap: nowrap;
-  }
-
-  .video-image-block {
-    width: 15.625rem;
-    height: 9.375rem;
   }
 
   .recommended-image-block {
