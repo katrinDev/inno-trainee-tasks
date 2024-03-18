@@ -47,8 +47,6 @@ svg {
 }
 
 #subscribe-button {
-  min-width: 9.625rem;
-  min-height: 2.5rem;
   background-color: #ff0000;
   color: #fff;
   border-radius: 30px;
@@ -150,6 +148,11 @@ svg {
     border: none;
     margin-right: 1.1875rem;
     padding-top: 0.0625rem;
+  }
+
+  #subscribe-button {
+    min-width: 9.625rem;
+    min-height: 2.5rem;
   }
 
   .main-channel-block {
