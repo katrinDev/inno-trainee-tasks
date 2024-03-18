@@ -21,12 +21,15 @@ h2 {
 
 h4 {
   font-weight: bold;
-  line-height: 1.255rem;
+  line-height: 1.3rem;
 }
 
 h3 {
   font-size: 1.125rem;
   line-height: 1.4119rem;
+}
+
+aside h3 {
   color: #000;
 }
 

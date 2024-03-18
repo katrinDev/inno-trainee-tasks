@@ -132,7 +132,8 @@
     align-items: center;
   }
 
-  .nav-block:last-child {
+  .nav-block:last-child,
+  #subscriptions-nav-block {
     margin-bottom: 0;
   }
 

@@ -125,7 +125,7 @@ img {
   right: 0.625rem;
   font-size: 0.875rem;
   color: #fff;
-  background-color: #ab9f90;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 40px;
   width: 2.9375rem;
   height: 1.5rem;

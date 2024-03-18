@@ -13,8 +13,8 @@
   }
 
   #menu-icon,
-  .input-container,
   .bell-container,
+  .input-container,
   .wide-screen-button {
     display: none;
   }
