@@ -12,5 +12,155 @@ img {
   left: 0;
   transition: 0.6s;
   z-index: 9999;
-  background-color: #fff;
+  background-color: white;
+}
+
+.side-menu-open {
+  display: flex;
+  align-items: center;
+}
+
+.youtube-logo {
+  display: flex;
+  gap: 0.1875rem;
+}
+
+@media (min-width: 601px) {
+  #page-header {
+    height: var(--mobile-breakpoint);
+    padding: 1.25rem 4.375rem 1rem 2rem;
+  }
+
+  #page-header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #header-left {
+    flex-basis: 56%;
+    gap: 3.75rem;
+  }
+
+  .side-menu-open {
+    display: flex;
+    align-items: center;
+  }
+
+  #menu-icon {
+    margin-right: 1.75rem;
+  }
+
+  #youtube-logo {
+    flex-shrink: 3;
+  }
+
+  #user-avatar {
+    width: 2.5rem;
+    border-radius: 50%;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .input-container {
+    position: relative;
+    flex-basis: 78.7%;
+  }
+
+  .input-field {
+    width: 100%;
+    border-radius: 30px;
+    color: var(--input-text-color);
+    background-color: var(--buttons-background);
+    padding: 0.875rem 1.125rem 0.875rem 1.5rem;
+    text-align: left;
+    border: none;
+  }
+
+  .input-icon-button {
+    background-color: var(--buttons-background);
+    position: absolute;
+    right: 1.125rem;
+    top: 0.8125rem;
+    border: none;
+  }
+
+  .input-icon-button svg {
+    vertical-align: middle;
+    object-fit: contain;
+  }
+
+  #header-right {
+    width: 18rem;
+  }
+
+  .bell-container {
+    position: relative;
+    line-height: 0;
+  }
+
+  #bell-icon {
+    width: 100%;
+  }
+
+  .chip {
+    display: inline-block;
+    position: absolute;
+    top: -0.375rem;
+    right: -0.25rem;
+    color: white;
+    font-size: 0.725rem;
+    font-weight: bold;
+    width: 80%;
+    height: 70%;
+    border-radius: 50px;
+    background-color: red;
+    border: 1px solid white;
+    z-index: 999;
+    text-align: center;
+    padding: 35% 0;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .wide-screen-button {
+    display: none;
+  }
+
+  #header-left {
+    flex-basis: 70%;
+  }
+
+  #header-right {
+    width: 7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #page-header {
+    padding: 0.75rem 1.25rem 0.75rem 1rem;
+  }
+
+  #header-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h4 {
+    padding-top: 0.3125rem;
+  }
+
+  .side-menu-open {
+    margin-right: 0.625rem;
+  }
+
+  #header-right,
+  .side-menu-open button,
+  .input-container,
+  .wide-screen-button {
+    display: none;
+  }
 }
