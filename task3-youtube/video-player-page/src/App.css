@@ -42,7 +42,8 @@ path {
 #menu-icon > path,
 #search-icon > path,
 #more-icon-button path,
-.input-icon-button path {
+.input-icon-button path,
+#tree-dots-icon path {
   fill: black;
 }
 
@@ -57,4 +58,21 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.25rem;
+    line-height: 1.569;
+  }
+
+  h2 {
+    font-size: 1rem;
+    line-height: 1.255rem;
+  }
+
+  h4 {
+    font-size: 0.625rem;
+    line-height: 0.78rem;
+  }
 }

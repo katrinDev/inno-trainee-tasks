@@ -2,27 +2,28 @@ import "../../../styles/player-styles/ProgressBar.css";
 
 export default function ProgressBar() {
   return (
-    <div id="progress-bar-container">
-      <div id="time-points">
-        <span>1:34</span>
-        <span>19:00</span>
-      </div>
+    <>
+      <div className="progress-bar-container desktop">
+        <div id="time-points">
+          <span>1:34</span>
+          <span>19:00</span>
+        </div>
 
-      <div className="progress-bar" id="video-time-slider">
-        <div className="done-line" id="video-timeline" />
-      </div>
+        <div className="progress-bar" id="video-time-slider">
+          <div className="done-line" id="video-timeline" />
+        </div>
 
-      <div id="control-optns">
-        <div id="left-controls">
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.244444in"
-              height="0.266667in"
-              viewBox="0 0 22 24"
-            >
-              <path
-                d="M 8.80,0.00
+        <div id="control-optns">
+          <div id="left-controls">
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.244444in"
+                height="0.266667in"
+                viewBox="0 0 22 24"
+              >
+                <path
+                  d="M 8.80,0.00
            C 8.80,0.00 0.00,0.00 0.00,0.00
              0.00,0.00 0.00,24.00 0.00,24.00
              0.00,24.00 8.80,24.00 8.80,24.00
@@ -32,20 +33,20 @@ export default function ProgressBar() {
              13.20,0.00 13.20,24.00 13.20,24.00
              13.20,24.00 22.00,24.00 22.00,24.00
              22.00,24.00 22.00,0.00 22.00,0.00 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
 
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.3in"
-              height="0.2in"
-              viewBox="0 0 27 18"
-              id="next-icon"
-            >
-              <path
-                d="M 10.80,0.00
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.3in"
+                height="0.2in"
+                viewBox="0 0 27 18"
+                id="next-icon"
+              >
+                <path
+                  d="M 10.80,0.00
            C 10.80,0.00 10.80,5.99 10.80,5.99
              10.80,5.99 0.00,0.00 0.00,0.00
              0.00,0.00 0.00,16.50 0.00,16.50
@@ -58,20 +59,20 @@ export default function ProgressBar() {
              27.00,0.00 23.25,0.00 23.25,0.00
              23.25,0.00 23.25,7.42 23.25,7.42
              23.25,7.42 10.80,0.00 10.80,0.00 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
 
-          <div id="volume-block">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.266667in"
-              height="0.266667in"
-              viewBox="0 0 24 24"
-              id="volume-icon"
-            >
-              <path
-                d="M 21.36,12.00
+            <div id="volume-block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.266667in"
+                height="0.266667in"
+                viewBox="0 0 24 24"
+                id="volume-icon"
+              >
+                <path
+                  d="M 21.36,12.00
            C 21.36,16.72 18.02,20.37 13.50,21.46
              13.50,21.46 13.50,24.00 13.50,24.00
              19.48,22.86 24.00,17.91 24.00,12.00
@@ -89,26 +90,26 @@ export default function ProgressBar() {
            C 18.00,9.60 16.11,7.58 13.50,6.81
              13.50,6.81 13.50,17.16 13.50,17.16
              16.11,16.39 18.00,14.39 18.00,11.99 Z"
-              />
-            </svg>
+                />
+              </svg>
 
-            <div className="progress-bar" id="volume-slider">
-              <div className="done-line" id="volume-amount-line" />
+              <div className="progress-bar" id="volume-slider">
+                <div className="done-line" id="volume-amount-line" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div id="right-controls">
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.3in"
-              height="0.2in"
-              viewBox="0 0 27 18"
-              id="subtitles-button"
-            >
-              <path
-                d="M 0.00,18.00
+          <div id="right-controls">
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.3in"
+                height="0.2in"
+                viewBox="0 0 27 18"
+                id="subtitles-button"
+              >
+                <path
+                  d="M 0.00,18.00
            C 0.00,18.00 27.00,18.00 27.00,18.00
              27.00,18.00 27.00,0.00 27.00,0.00
              27.00,0.00 0.00,0.00 0.00,0.00
@@ -179,20 +180,20 @@ export default function ProgressBar() {
              20.76,10.85 20.95,10.38 21.03,9.81
              21.03,9.81 22.95,9.81 22.95,9.81
              22.90,10.34 22.77,10.83 22.56,11.27 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
 
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.3in"
-              height="0.3in"
-              viewBox="0 0 27 27"
-              id="settings-icon"
-            >
-              <path
-                d="M 27.00,15.53
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.3in"
+                height="0.3in"
+                viewBox="0 0 27 27"
+                id="settings-icon"
+              >
+                <path
+                  d="M 27.00,15.53
            C 27.00,15.53 27.00,11.48 27.00,11.48
              27.00,11.48 23.41,11.48 23.41,11.48
              23.16,10.19 22.65,8.99 21.94,7.92
@@ -230,20 +231,20 @@ export default function ProgressBar() {
              7.42,10.14 10.14,7.42 13.50,7.42
              16.84,7.42 19.57,10.14 19.57,13.50
              19.57,16.84 16.84,19.57 13.50,19.57 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
 
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.333333in"
-              height="0.233333in"
-              viewBox="0 0 30 21"
-              id="resize-icon"
-            >
-              <path
-                d="M 0.00,0.00
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.333333in"
+                height="0.233333in"
+                viewBox="0 0 30 21"
+                id="resize-icon"
+              >
+                <path
+                  d="M 0.00,0.00
            C 0.00,0.00 30.00,0.00 30.00,0.00
              30.00,0.00 30.00,21.00 30.00,21.00
              30.00,21.00 0.00,21.00 0.00,21.00
@@ -253,20 +254,20 @@ export default function ProgressBar() {
              25.50,16.50 25.50,4.50 25.50,4.50
              25.50,4.50 4.50,4.50 4.50,4.50
              4.50,4.50 4.50,16.50 4.50,16.50 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
 
-          <button type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="0.366667in"
-              height="0.266667in"
-              viewBox="0 0 33 24"
-              id="fullscreen-icon"
-            >
-              <path
-                d="M 0.00,9.00
+            <button type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.366667in"
+                height="0.266667in"
+                viewBox="0 0 33 24"
+                id="fullscreen-icon"
+              >
+                <path
+                  d="M 0.00,9.00
            C 0.00,9.00 4.50,9.00 4.50,9.00
              4.50,9.00 4.50,4.50 4.50,4.50
              4.50,4.50 9.00,4.50 9.00,4.50
@@ -294,11 +295,77 @@ export default function ProgressBar() {
              9.00,24.00 9.00,19.50 9.00,19.50
              9.00,19.50 4.50,19.50 4.50,19.50
              4.50,19.50 4.50,15.00 4.50,15.00 Z"
-              />
-            </svg>
-          </button>
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="progress-bar-container mobile">
+        <button type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="0.244444in"
+            height="0.266667in"
+            viewBox="0 0 22 24"
+            id="pause-mobile-icon"
+          >
+            <path
+              d="M 8.80,0.00
+           C 8.80,0.00 0.00,0.00 0.00,0.00
+             0.00,0.00 0.00,24.00 0.00,24.00
+             0.00,24.00 8.80,24.00 8.80,24.00
+             8.80,24.00 8.80,0.00 8.80,0.00 Z
+           M 22.00,0.00
+           C 22.00,0.00 13.20,0.00 13.20,0.00
+             13.20,0.00 13.20,24.00 13.20,24.00
+             13.20,24.00 22.00,24.00 22.00,24.00
+             22.00,24.00 22.00,0.00 22.00,0.00 Z"
+            />
+          </svg>
+        </button>
+
+        <div id="timeline-block">
+          <span>1:34</span>
+
+          <div className="progress-bar" id="mobile-video-slider">
+            <div className="done-line" id="mobile-video-timeline" />
+          </div>
+
+          <span>-10:00</span>
+        </div>
+
+        <button type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="0.266667in"
+            height="0.266667in"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M 21.36,12.00
+           C 21.36,16.72 18.02,20.37 13.50,21.46
+             13.50,21.46 13.50,24.00 13.50,24.00
+             19.48,22.86 24.00,17.91 24.00,12.00
+             24.00,6.08 19.48,1.12 13.50,0.00
+             13.50,0.00 13.50,2.52 13.50,2.52
+             18.02,3.61 21.36,7.26 21.36,12.00 Z
+           M 10.50,23.25
+           C 10.50,23.25 3.60,15.66 3.60,15.66
+             3.60,15.66 0.00,15.66 0.00,15.66
+             0.00,15.66 0.00,8.31 0.00,8.31
+             0.00,8.31 3.58,8.31 3.58,8.31
+             3.58,8.31 10.50,0.72 10.50,0.72
+             10.50,0.72 10.50,23.25 10.50,23.25 Z
+           M 18.00,11.99
+           C 18.00,9.60 16.11,7.58 13.50,6.81
+             13.50,6.81 13.50,17.16 13.50,17.16
+             16.11,16.39 18.00,14.39 18.00,11.99 Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </>
   );
 }

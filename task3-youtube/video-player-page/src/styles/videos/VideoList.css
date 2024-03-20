@@ -27,3 +27,12 @@ h4 {
   overflow: hidden;
   flex-wrap: nowrap;
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1401px) {
+}
+
+@media only screen and (max-width: 600px) {
+  #videos-content-block {
+    padding-top: 1.25rem;
+  }
+}

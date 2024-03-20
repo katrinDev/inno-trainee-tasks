@@ -17,6 +17,10 @@
   line-height: 1.4119rem;
 }
 
+.content-container {
+  overflow: hidden;
+}
+
 @media only screen and (min-width: 601px) {
   .content-container {
     margin-top: var(--header-height-desktop);
@@ -25,7 +29,6 @@
 
     column-gap: 2.5rem;
     padding: 0 4.375rem 0 5rem;
-    height: calc(100% - var(--header-height-desktop));
   }
 
   .mobile {
@@ -36,6 +39,16 @@
 @media only screen and (max-width: 600px) {
   .content-container {
     margin-top: var(--header-height-mobile);
-    height: calc(100% - var(--header-height-mobile));
+  }
+
+  .content-container > :nth-child(n + 2) {
+    margin: 0 1rem;
+  }
+
+  .views,
+  .author {
+    color: var(--subtext-color);
+    font-size: 0.8125rem;
+    line-height: 1rem;
   }
 }

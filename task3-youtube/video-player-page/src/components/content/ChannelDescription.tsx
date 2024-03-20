@@ -12,11 +12,13 @@ export default function ChannelDescription() {
         <div>
           <div id="descrptn-header">
             <h2>Food & Drink</h2>
-            <span>Published on 14 Jun 2019</span>
+            <span className="mobile">245K subscribed</span>
+            <span className="desktop">Published on 14 Jun 2019</span>
           </div>
 
           <button type="button" id="subscribe-button">
-            Subscribe 2.3m
+            <span className="desktop">Subscribe 2.3m</span>
+            <span className="mobile">Subscribe</span>
           </button>
         </div>
 
