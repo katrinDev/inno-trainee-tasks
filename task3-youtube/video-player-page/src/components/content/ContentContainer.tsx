@@ -1,6 +1,6 @@
 import ChannelDescription from "./ChannelDescription";
 import MainVideoPlayer from "./video-player/MainVideoPLayer";
-import VideoList from "./VideoList";
+import VideoList from "./videos/VideoList";
 import "../../styles/ContentContainer.css";
 
 export default function ContentContainer() {

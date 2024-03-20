@@ -1,0 +1,29 @@
+#videos-content-block {
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+
+#videos-block-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.625rem;
+}
+
+#switcher-block {
+  display: flex;
+  gap: 0.6875rem;
+  align-items: center;
+}
+
+h4 {
+  letter-spacing: 0.125rem;
+}
+
+#video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4375rem;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}

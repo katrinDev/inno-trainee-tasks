@@ -21,7 +21,7 @@
   .content-container {
     margin-top: var(--header-height-desktop);
     display: grid;
-    grid-template: 73.69% auto / 77% auto;
+    grid-template: 51.56rem auto / 77% auto;
 
     column-gap: 2.5rem;
     padding: 0 4.375rem 0 5rem;

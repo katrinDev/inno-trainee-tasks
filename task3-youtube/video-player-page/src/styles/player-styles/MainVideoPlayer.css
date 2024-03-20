@@ -19,7 +19,7 @@
   width: 6.25rem;
   height: 2.5rem;
   background-color: var(--buttons-background);
-  border-radius: 20px;
+  border-radius: var(--button-border-radius);
   text-align: center;
   gap: 0.5rem;
 }

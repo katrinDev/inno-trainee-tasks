@@ -23,7 +23,7 @@ body {
   --subtext-color: rgba(194, 194, 194, 1);
   --buttons-background: rgba(235, 235, 235, 0.3);
   --prog-bar-color: rgba(255, 255, 255, 0.2);
-  --slider-color: rgba(33, 150, 243, 1);
+  --switcher-color: rgba(33, 150, 243, 1);
   --input-text-color: rgba(48, 56, 76, 0.4);
 
   --primary-main: rgba(25, 38, 70, 1);
@@ -35,4 +35,5 @@ body {
   --video-border-radius: 14px;
   --avatar-border-radius: 50%;
   --slider-border-radius: 5px;
+  --button-border-radius: 20px;
 }

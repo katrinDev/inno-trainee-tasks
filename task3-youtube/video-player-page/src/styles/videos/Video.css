@@ -1,0 +1,33 @@
+.video-image-block {
+  width: 100%;
+  height: 13.3125rem;
+  margin-bottom: 0.8125rem;
+}
+
+.video-image {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--video-border-radius);
+}
+
+.timer {
+  position: absolute;
+  bottom: 0.625rem;
+  right: 0.625rem;
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  width: 2.9375rem;
+  height: 1.5rem;
+  line-height: 1.09rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#views-info-block {
+  margin-top: 0.6875rem;
+}
