@@ -1,0 +1,42 @@
+#image-player-container {
+  margin-bottom: 1.25rem;
+  height: 43.75rem;
+  width: 100%;
+}
+
+#image-player-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--video-border-radius);
+}
+
+.feedback-btns {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.feedback-btns button {
+  width: 6.25rem;
+  height: 2.5rem;
+  background-color: var(--buttons-background);
+  border-radius: 20px;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+#main-views {
+  font-size: 1.25rem;
+  line-height: 1.57rem;
+}
+
+.feedback-btns span {
+  color: var(--primary-main);
+  font-size: 1rem;
+  line-height: 1.255rem;
+}

@@ -4,15 +4,35 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   font-family: "muli", sans-serif;
   font-weight: 400;
+  font-size: 1rem;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 :root {
-  --subtext-color: #c2c2c2;
+  --subtext-color: rgba(194, 194, 194, 1);
   --buttons-background: rgba(235, 235, 235, 0.3);
   --prog-bar-color: rgba(255, 255, 255, 0.2);
-  --slider-color: #2196f3;
+  --slider-color: rgba(33, 150, 243, 1);
   --input-text-color: rgba(48, 56, 76, 0.4);
+
+  --primary-main: rgba(25, 38, 70, 1);
+  --primary-dark: rgba(25, 32, 44, 1);
+
+  --header-height-desktop: 5.875rem;
+  --header-height-mobile: 3.75rem;
+
+  --video-border-radius: 14px;
+  --avatar-border-radius: 50%;
+  --slider-border-radius: 5px;
 }

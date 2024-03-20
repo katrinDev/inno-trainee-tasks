@@ -1,0 +1,41 @@
+.video-image-block {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.description div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.views,
+.author {
+  color: var(--subtext-color);
+  font-size: 1.125rem;
+  line-height: 1.4119rem;
+}
+
+@media only screen and (min-width: 601px) {
+  .content-container {
+    margin-top: var(--header-height-desktop);
+    display: grid;
+    grid-template: 73.69% auto / 77% auto;
+
+    column-gap: 2.5rem;
+    padding: 0 4.375rem 0 5rem;
+    height: calc(100% - var(--header-height-desktop));
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .content-container {
+    margin-top: var(--header-height-mobile);
+    height: calc(100% - var(--header-height-mobile));
+  }
+}
