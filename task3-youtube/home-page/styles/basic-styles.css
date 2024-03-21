@@ -57,7 +57,7 @@ a {
 
 button {
   border: none;
-  background-color: #fff;
+  background-color: transparent;
   display: flex;
 }
 
@@ -129,9 +129,11 @@ img {
   border-radius: 40px;
   width: 2.9375rem;
   height: 1.5rem;
-  text-align: center;
-  padding: 0.625rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 999;
+  line-height: 1.098rem;
 }
 
 .views-info,
