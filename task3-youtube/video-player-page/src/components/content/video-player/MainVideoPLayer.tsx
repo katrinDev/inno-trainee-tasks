@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 
 export default function MainVideoPlayer() {
   return (
-    <div>
+    <div id="main-video-player-container">
       <div className="video-image-block" id="image-player-container">
         <a href="#">
           <img src={eggShellImage} alt="Main video image" />

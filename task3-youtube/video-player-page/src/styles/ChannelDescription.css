@@ -99,3 +99,14 @@
     width: calc(100% - 3.875rem);
   }
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  #channel-descrptn-container {
+    border-bottom: 1px solid var(--block-border-color);
+    gap: 1.5rem;
+  }
+
+  #text-block {
+    width: calc(100% - 6.5rem);
+  }
+}

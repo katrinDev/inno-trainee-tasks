@@ -63,7 +63,7 @@ button {
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 1.25rem;
-    line-height: 1.569;
+    line-height: 1.569rem;
   }
 
   h2 {
@@ -74,5 +74,12 @@ button {
   h4 {
     font-size: 0.625rem;
     line-height: 0.78rem;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.569rem;
   }
 }

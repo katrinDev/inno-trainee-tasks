@@ -41,6 +41,15 @@
   line-height: 1.255rem;
 }
 
+@media only screen and (min-width: 601px) and (max-width: 1501px) {
+  #main-video-description > div:first-of-type {
+    margin-top: 0.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   #main-views,
   #descrptn-header span {
@@ -75,5 +84,11 @@
 @media only screen and (min-width: 601px) {
   .mobile {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  #main-video-player-container {
+    padding-bottom: 2.5rem;
   }
 }

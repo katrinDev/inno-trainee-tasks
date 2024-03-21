@@ -31,3 +31,9 @@
 #views-info-block {
   margin-top: 0.6875rem;
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .video-image-block {
+    width: 20rem;
+  }
+}
