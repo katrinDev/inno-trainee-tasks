@@ -1,0 +1,85 @@
+img {
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.82rem;
+  color: var(--primary-main);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+  color: var(--primary-dark);
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.4119rem;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.255rem;
+}
+
+path {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+
+  fill: var(--subtext-color);
+}
+
+#home-icon > path,
+#youtube-image > path {
+  fill: red;
+}
+
+#youtube-text > path,
+#menu-icon > path,
+#search-icon > path,
+#more-icon-button path,
+.input-icon-button path,
+#tree-dots-icon path {
+  fill: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.25rem;
+    line-height: 1.569rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    line-height: 1.255rem;
+  }
+
+  h4 {
+    font-size: 0.625rem;
+    line-height: 0.78rem;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.569rem;
+  }
+}
