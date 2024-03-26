@@ -1,0 +1,112 @@
+#channel-descrptn-container {
+  border-top: 1px solid var(--block-border-color);
+  display: flex;
+  gap: 0.75rem;
+  padding: 2.375rem 0 3rem;
+}
+
+#plate-image-container > img {
+  border-radius: var(--avatar-border-radius);
+  width: 100%;
+  height: 100%;
+}
+
+#descrptn-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#descrptn-header span {
+  font-size: 0.8125rem;
+  color: var(--subtext-color);
+  line-height: 1rem;
+}
+
+#subscribe-button {
+  font-size: 1rem;
+  line-height: 1.255;
+}
+
+#text-block > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 601px) {
+  #subscribe-button {
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 30px;
+    width: 9.625rem;
+    height: 2.5rem;
+  }
+
+  #plate-image-container {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  #text-block {
+    width: calc(100% - 5.75rem);
+  }
+
+  #text-block > div:first-child {
+    align-items: start;
+  }
+
+  #main-descrptn-text {
+    max-width: 51.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem;
+    margin-top: 0.875rem;
+  }
+
+  #main-descrptn-text p {
+    line-height: 1.375rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  #main-descrptn-text span {
+    font-size: 1.25rem;
+    line-height: 1.57rem;
+    color: var(--subtext-color);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #channel-descrptn-container {
+    border-bottom: 1px solid var(--block-border-color);
+    align-items: center;
+  }
+
+  #subscribe-button {
+    color: red;
+  }
+
+  #main-descrptn-text {
+    display: none;
+  }
+
+  #plate-image-container {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+
+  #text-block {
+    justify-content: space-between;
+    width: calc(100% - 3.875rem);
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  #channel-descrptn-container {
+    border-bottom: 1px solid var(--block-border-color);
+    gap: 1.5rem;
+  }
+
+  #text-block {
+    width: calc(100% - 6.5rem);
+  }
+}

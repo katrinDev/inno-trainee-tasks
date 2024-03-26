@@ -1,0 +1,20 @@
+#switcher {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  width: 2.75rem;
+  height: 1.75rem;
+  background-color: var(--buttons-background);
+  border-radius: var(--button-border-radius);
+}
+
+#inner-switcher-part {
+  background-color: var(--switcher-color);
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0.125rem;
+  right: 0.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.24);
+}

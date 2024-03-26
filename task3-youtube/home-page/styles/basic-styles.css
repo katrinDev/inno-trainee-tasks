@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 1rem;
+}
+
+html {
+  height: 100vh;
 }
 
 body {
@@ -9,6 +14,54 @@ body {
   font-weight: 400;
 }
 
+h2 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+}
+
+h4 {
+  font-weight: bold;
+  line-height: 1.255rem;
+}
+
+h3 {
+  margin-bottom: 1.875rem;
+  font-size: 1.125rem;
+  line-height: 1.4119rem;
+  color: #000;
+}
+
+path {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+
+  fill: #c2c2c2;
+}
+
+#home-icon > path,
+#youtube-image > path {
+  fill: red;
+}
+
+#youtube-text > path,
+#menu-icon > path,
+#search-icon > path,
+.input-icon-button path {
+  fill: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+}
+
+/* header */
 #page-header {
   display: flex;
   justify-content: space-between;
@@ -26,8 +79,13 @@ img {
   object-fit: cover;
 }
 
-#youtube-logo {
-  object-fit: contain;
+.side-menu-open {
+  display: flex;
+}
+
+.youtube-logo {
+  display: flex;
+  gap: 0.1875rem;
 }
 
 .input-icon-button {
@@ -40,6 +98,7 @@ img {
   align-items: center;
 }
 
+/* content part*/
 .content {
   display: flex;
   align-items: center;
@@ -47,13 +106,9 @@ img {
   width: 100%;
 }
 
-.video-title {
-  font-size: 16px;
-  font-weight: 700;
-}
-
 .video-image {
   width: 100%;
+  height: 100%;
   border-radius: 14px;
 }
 
@@ -61,36 +116,34 @@ img {
   position: relative;
   display: inline-block;
   line-height: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .timer {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 14px;
+  bottom: 0.625rem;
+  right: 0.625rem;
+  font-size: 0.875rem;
   color: #fff;
-  background-color: #ab9f90;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 40px;
-  width: 47px;
-  height: 24px;
-  text-align: center;
-  padding: 10px 0;
+  width: 2.9375rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 999;
+  line-height: 1.098rem;
 }
 
 .views-info,
 .author {
   color: #c2c2c2;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 article {
   width: 100%;
-}
-
-.side-menu-open {
-  display: flex;
 }
 
 #article-sub-title {
@@ -99,21 +152,28 @@ article {
 
 .article-title {
   display: flex;
-  gap: 22px;
+  gap: 1.375rem;
   align-items: center;
-}
-
-.food-image {
-  height: 100%;
-}
-
-.subscriptions img {
-  object-fit: contain;
 }
 
 .description div:first-of-type {
   display: flex;
   justify-content: space-between;
+}
+
+.article-right-header > button {
+  min-width: 9.625rem;
+  min-height: 2.5rem;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  padding: 0.625rem 1.1875rem;
+}
+
+/* aside part */
+.subscriptions img {
+  object-fit: contain;
 }
 
 .home {
@@ -127,8 +187,4 @@ aside {
 .nav-block {
   display: flex;
   align-items: center;
-}
-
-h3 {
-  color: #000;
 }
