@@ -1,0 +1,120 @@
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #f4dec7;
+}
+
+.calc {
+  width: 42.5rem;
+  height: 31.25rem;
+  border-radius: 20px;
+  background: #324b45;
+  color: #fff;
+  font-family: "Arial";
+  padding: 1.25rem;
+  box-shadow: 0 0 15px #9aa88f;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .calc {
+    transform: scale(0.6);
+  }
+}
+.calc-screen {
+  height: 7.8rem;
+  padding: 0.625rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.calc-screen p {
+  text-align: right;
+  font-size: 3.5rem;
+
+  margin-bottom: 0.3rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template: repeat(5, minmax(3.75rem, auto)) / repeat(
+      8,
+      minmax(3.75rem, auto)
+    );
+  grid-gap: 0.625rem;
+}
+
+.buttons button {
+  border-radius: 30%;
+  font-size: 1.5rem;
+  user-select: none;
+
+  border-width: 0;
+}
+
+button:not(:disabled):hover {
+  filter: brightness(110%);
+}
+
+button:not(:disabled):active {
+  filter: brightness(90%);
+}
+
+#zero {
+  grid-column: 5/7;
+  border-radius: 23px;
+}
+
+button.bg-orange {
+  background: #e76c44;
+
+  border: 1px solid #f4e0cc;
+
+  color: #faf3e9;
+}
+
+.number,
+#separator {
+  background: #f4dec7;
+  color: #072108;
+}
+
+.extra-operations {
+  background: #be3d36;
+
+  color: #faf3e9;
+}
+
+button.power-oprtn {
+  position: relative;
+}
+
+.power {
+  font-size: x-small;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+  position: absolute;
+  top: 0.75rem;
+}
+
+.root-symbol {
+  position: relative;
+  font-weight: bold;
+}
+
+.root-power {
+  position: absolute;
+  font-size: x-small;
+  top: -0.3em;
+  left: 0.1em;
+}

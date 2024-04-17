@@ -1,9 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="calc">
+      <div class="calc-screen">
+        <p id="output">0</p>
+      </div>
+      <div class="buttons">
+        <button type="button" id="mc" class="extra-operations">mc</button>
+        <button type="button" id="m+" class="extra-operations">m+</button>
+        <button type="button" id="m-" class="extra-operations">m-</button>
+        <button type="button" id="mr" class="extra-operations">mr</button>
+
+        <button type="button" id="ac" class="extra-operations">AC</button>
+        <button type="button" id="pl-minus" class="extra-operations">
+          +/-
+        </button>
+        <button type="button" id="percent" class="extra-operations">%</button>
+        <button type="button" id="division" class="bg-orange">/</button>
+
+        <button type="button" id="square" class="power-oprtn">
+          x<span class="power">2</span>
+        </button>
+        <button type="button" id="cube" class="power-oprtn">
+          x<span class="power">3</span>
+        </button>
+        <button type="button" id="any-power" class="power-oprtn">
+          x<span class="power">y</span>
+        </button>
+        <button type="button" id="ten-in-power" class="power-oprtn">
+          10<span class="power">x</span>
+        </button>
+
+        <button type="button" id="seven" class="number">7</button>
+        <button type="button" id="eight" class="number">8</button>
+        <button type="button" id="nine" class="number">9</button>
+        <button type="button" id="multiplication" class="bg-orange">x</button>
+
+        <button type="button" id="reciprocal">1/x</button>
+        <button type="button" id="square-root">
+          <span class="root-symbol">
+            <span class="root-power">2</span>&radic;</span
+          >x
+        </button>
+        <button type="button" id="cube-root">
+          <span class="root-symbol">
+            <span class="root-power">3</span>&radic;</span
+          >x
+        </button>
+        <button type="button">
+          <span class="root-symbol">
+            <span class="root-power">y</span>&radic;</span
+          >x
+        </button>
+
+        <button type="button" id="four" class="number">4</button>
+        <button type="button" id="five" class="number">5</button>
+        <button type="button" id="six" class="number">6</button>
+        <button type="button" id="minus" class="bg-orange">-</button>
+
+        <button type="button" id="factorial">x!</button>
+        <button type="button" disabled>sin</button>
+        <button type="button" disabled>cos</button>
+        <button type="button" disabled>tan</button>
+
+        <button type="button" id="one" class="number">1</button>
+        <button type="button" id="two" class="number">2</button>
+        <button type="button" id="three" class="number">3</button>
+        <button type="button" class="bg-orange" id="plus">+</button>
+
+        <button type="button" disabled>sinh</button>
+        <button type="button" disabled>cosh</button>
+        <button type="button" disabled>tanh</button>
+        <button type="button" disabled>Rad</button>
+
+        <button type="button" id="zero" class="number">0</button>
+        <button type="button" id="separator">.</button>
+        <button type="button" id="equals" class="bg-orange">=</button>
+      </div>
+    </div>
+  </body>
 </html>
