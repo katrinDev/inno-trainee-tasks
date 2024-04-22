@@ -3,12 +3,17 @@
  * @description Contains main logic for handling document events */
 
 import {
+  anyPowerOptn,
   clearAll,
+  cubeOptn,
   equalsClicked,
   operandsChange,
   output,
   signClicked,
+  squareOptn,
+  tenInPowerOptn,
 } from "./app";
+import { calcData } from "./state/calculationState";
 import {
   DIGITS,
   ARITHMETIC_OPERATORS,
@@ -60,10 +65,31 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
-  /**
-   * If an equels button was clicked
-   */
+  if (target.classList.contains("power-oprtn")) {
+    switch (target.id) {
+      case "square":
+        squareOptn();
+        break;
+      case "cube":
+        cubeOptn();
+        break;
+      case "any-power":
+        anyPowerOptn();
+        break;
+      case "ten-in-power":
+        tenInPowerOptn();
+        break;
+      default:
+        return;
+    }
+
+    return;
+  }
+
   if (key === "=") {
+    /**
+     * If an equels button was clicked
+     */
     equalsClicked();
   }
 });

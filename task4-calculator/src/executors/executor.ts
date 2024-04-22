@@ -1,7 +1,7 @@
 import { ZeroDivisionError } from "../errors/zeroDivisionError";
 
 export class Executor {
-  countArithmOptn(x: number, y: number, sign: string) {
+  countBinaryOperation(x: number, y: number, sign: string) {
     switch (sign) {
       case "+":
         return x + y;
@@ -14,8 +14,22 @@ export class Executor {
           throw new ZeroDivisionError();
         }
         return x / y;
+      case "^":
+        return x ** y;
       default:
         return x;
     }
+  }
+
+  squarePower(x: number) {
+    return x ** 2;
+  }
+
+  cubePower(x: number) {
+    return x ** 3;
+  }
+
+  tenInPower(x: number) {
+    return 10 ** x;
   }
 }

@@ -31,7 +31,7 @@ export abstract class Command {
   saveBackup() {
     this.backup = {
       calcState: this.calcState,
-      outputText: this.output.textContent ?? "",
+      outputText: this.output.textContent ?? "0",
     };
   }
 

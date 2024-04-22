@@ -1,7 +1,7 @@
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
-export class OperandsChangeCommand extends Command {
+export class DigitClickedCommand extends Command {
   private key: string;
 
   constructor(calcState: CalculationState, output: HTMLElement, key: string) {
@@ -12,20 +12,19 @@ export class OperandsChangeCommand extends Command {
   execute() {
     this.saveBackup();
 
-    if (this.calcState.y === "" && this.calcState.sign === "") {
+    if (
+      this.calcState.y === "" &&
+      this.calcState.sign === "" &&
+      this.calcState.isFirstCalculation
+    ) {
       this.calcState.x += this.key;
       this.output.textContent = this.calcState.x;
-    } else if (
-      this.calcState.x !== "" &&
-      this.calcState.y !== "" &&
-      this.calcState.isNewCalculation
-    ) {
-      this.calcState.x = this.key;
-      this.calcState.isNewCalculation = false;
-      this.output.textContent = this.calcState.x;
-    } else {
+    } else if (this.calcState.x !== "" && this.calcState.sign !== "") {
       this.calcState.y += this.key;
       this.output.textContent = this.calcState.y;
+    } else {
+      this.calcState.x = this.key;
+      this.output.textContent = this.calcState.x;
     }
     return true;
   }

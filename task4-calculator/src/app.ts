@@ -1,10 +1,11 @@
 import { Command } from "./commands/abstractCommand";
-import { SignClickedCommand } from "./commands/signClickedCommand";
+import { BinaryOperatorsCommand } from "./commands/binaryOperatorsCommand";
 import { ClearAllCommand } from "./commands/clearAllCommand";
-import { OperandsChangeCommand } from "./commands/operandsChangeCommand";
+import { DigitClickedCommand } from "./commands/digitClickedCommand";
 import { Executor } from "./executors/executor";
 import { calcData } from "./state/calculationState";
 import { EqualsClickedCommand } from "./commands/equalsClickedCommand";
+import { Power, PowerOptnCommand } from "./commands/powerCommand";
 
 const commandsHistory: Command[] = [];
 const output = document.getElementById("output") as HTMLElement;
@@ -16,7 +17,13 @@ const equalsClicked = function () {
 
 const signClicked = function (key: string) {
   executeCommand(
-    new SignClickedCommand(calcData, output, currentExecutor, key)
+    new BinaryOperatorsCommand(calcData, output, currentExecutor, key)
+  );
+};
+
+const anyPowerOptn = function () {
+  executeCommand(
+    new BinaryOperatorsCommand(calcData, output, currentExecutor, "^")
   );
 };
 
@@ -25,7 +32,25 @@ const clearAll = function () {
 };
 
 const operandsChange = function (key: string) {
-  executeCommand(new OperandsChangeCommand(calcData, output, key));
+  executeCommand(new DigitClickedCommand(calcData, output, key));
+};
+
+const squareOptn = function () {
+  executeCommand(
+    new PowerOptnCommand(calcData, output, currentExecutor, Power.square)
+  );
+};
+
+const cubeOptn = function () {
+  executeCommand(
+    new PowerOptnCommand(calcData, output, currentExecutor, Power.cube)
+  );
+};
+
+const tenInPowerOptn = function () {
+  executeCommand(
+    new PowerOptnCommand(calcData, output, currentExecutor, Power.tenInPower)
+  );
 };
 
 function executeCommand(command: Command) {
@@ -51,4 +76,8 @@ export {
   clearAll,
   operandsChange,
   equalsClicked,
+  squareOptn,
+  cubeOptn,
+  anyPowerOptn,
+  tenInPowerOptn,
 };

@@ -6,7 +6,7 @@ export class CalculationState {
   x: string;
   y: string;
   sign: string;
-  isNewCalculation: boolean;
+  isFirstCalculation: boolean;
   /**
    * Initializes all properties to their default values.
    * @constructor
@@ -28,7 +28,7 @@ export class CalculationState {
     /**
      * Flag indicating whether the current operation is new.
      */
-    this.isNewCalculation = false;
+    this.isFirstCalculation = true;
   }
 
   /**
@@ -38,7 +38,7 @@ export class CalculationState {
     this.x = "";
     this.y = "";
     this.sign = "";
-    this.isNewCalculation = false;
+    this.isFirstCalculation = true;
   }
 }
 

@@ -3,7 +3,7 @@ import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
-export class SignClickedCommand extends Command {
+export class BinaryOperatorsCommand extends Command {
   private key: string;
 
   constructor(
@@ -17,8 +17,6 @@ export class SignClickedCommand extends Command {
   }
 
   execute() {
-    this.output.textContent = this.key;
-
     /**
      * If there were incorrect operation before
      */
@@ -26,12 +24,14 @@ export class SignClickedCommand extends Command {
 
     this.saveBackup();
 
+    this.output.textContent = this.key;
+
     if (this.calcState.sign !== "") {
       if (this.calcState.y === "") this.calcState.y = this.calcState.x;
 
       try {
         this.calcState.x = this.executor
-          .countArithmOptn(
+          .countBinaryOperation(
             +this.calcState.x,
             +this.calcState.y,
             this.calcState.sign
@@ -44,6 +44,7 @@ export class SignClickedCommand extends Command {
         }
       } finally {
         this.calcState.y = "";
+        this.calcState.isFirstCalculation = false;
       }
 
       this.output.textContent = this.resultFormatter.stringCropping(

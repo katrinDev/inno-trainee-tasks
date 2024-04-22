@@ -13,7 +13,6 @@ export class EqualsClickedCommand extends Command {
   }
 
   execute() {
-    console.log(JSON.stringify(this.calcState));
     this.saveBackup();
 
     /**
@@ -25,7 +24,7 @@ export class EqualsClickedCommand extends Command {
 
     try {
       this.calcState.x = this.executor
-        .countArithmOptn(
+        .countBinaryOperation(
           +this.calcState.x,
           +this.calcState.y,
           this.calcState.sign
@@ -37,7 +36,9 @@ export class EqualsClickedCommand extends Command {
         this.output.textContent = this.calcState.x;
       }
     } finally {
-      this.calcState.isNewCalculation = true;
+      this.calcState.sign = "";
+      this.calcState.y = "";
+      this.calcState.isFirstCalculation = false;
     }
 
     this.output.textContent = this.resultFormatter.stringCropping(

@@ -12,12 +12,12 @@ export class ResultFormatter {
    */
   stringCropping(result: string) {
     const resultNumber = parseFloat(result);
-    console.log(resultNumber);
+
     if (
       resultNumber !== 0 &&
       (Math.abs(resultNumber) > 1e6 || Math.abs(resultNumber) < 1e-6)
     ) {
-      return resultNumber.toExponential(4);
+      return resultNumber.toExponential(2);
     }
 
     if (!Number.isInteger(resultNumber)) {
