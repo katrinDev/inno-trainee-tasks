@@ -4,6 +4,10 @@ import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
+/**
+ * Command that processes binary operation
+ * @class
+ */
 export class BinaryOperatorsCommand extends Command {
   private key: string;
 

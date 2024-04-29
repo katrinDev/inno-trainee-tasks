@@ -1,6 +1,11 @@
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
+/**
+ * Command that processes digit button click
+ * and changes the operands accordingly
+ * @class
+ */
 export class DigitClickedCommand extends Command {
   private key: string;
 

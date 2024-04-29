@@ -8,7 +8,6 @@
   "scripts": {
     "build": "webpack --mode=production && ./node_modules/.bin/jsdoc src -r --package ./package.json -d docs",
     "dev": "webpack-dev-server --mode=development",
-    "deploy": "gh-pages -d dist",
     "test": "jest"
   },
   "husky": {

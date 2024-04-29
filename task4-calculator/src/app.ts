@@ -1,9 +1,13 @@
+/**
+ * @module app
+ * @description Module that creates commands instances and stores their history
+ */
 import { Command } from "./commands/abstractCommand";
 import { BinaryOperatorsCommand } from "./commands/binaryOperatorsCommand";
 import { ClearAllCommand } from "./commands/clearAllCommand";
 import { DigitClickedCommand } from "./commands/digitClickedCommand";
 import { Executor } from "./executors/executor";
-import { CalculationState, calcData } from "./state/calculationState";
+import { calcData } from "./state/calculationState";
 import { EqualsClickedCommand } from "./commands/equalsClickedCommand";
 import {
   UnaryOprtnType,
@@ -14,7 +18,7 @@ import {
   ConvertOprtnType,
 } from "./commands/convertOperatorsCommand";
 import { MemoryCommand, MemoryOptnType } from "./commands/memoryCommand";
-import { MemoryStore } from "./memoryStore/memoryStore";
+import { MemoryStore } from "./executors/memoryStore";
 import { UndoCommand } from "./commands/undoCommand";
 
 const commandsHistory: Command[] = [];

@@ -1,6 +1,10 @@
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
+/**
+ * Command that processes undo operation
+ * @class
+ */
 export class UndoCommand extends Command {
   private history: Command[];
 

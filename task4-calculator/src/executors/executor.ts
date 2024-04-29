@@ -1,9 +1,16 @@
+/**
+ * @module executor
+ */
 import { FactorialError } from "../errors/factorialError";
 import { NegativeBaseRootError } from "../errors/negativeBaseRootError";
 import { NegativeRootError } from "../errors/negativeRootError";
 import { RootOperationError } from "../errors/rootOperationError";
 import { ZeroDivisionError } from "../errors/zeroDivisionError";
 
+/**
+ * Handles arithmetic operations
+ * @class
+ */
 export class Executor {
   countBinaryOperation(x: number, y: number, sign: string) {
     switch (sign) {
@@ -55,6 +62,11 @@ export class Executor {
     return 1 / value;
   }
 
+  /**
+   * Calculates factorial of the input number
+   * @param value - number to get a factorial from
+   * @returns factorial
+   */
   factorial(value: number): number {
     if (value < 0 || !Number.isInteger(value)) {
       throw new FactorialError();
@@ -67,6 +79,12 @@ export class Executor {
     }
   }
 
+  /**
+   * Calculates any root of the number
+   * @param value Number to change
+   * @param root Root value
+   * @returns The result of root operation
+   */
   nthRoot(value: number, root: number) {
     if (root < 0) {
       throw new NegativeRootError();
@@ -95,10 +113,21 @@ export class Executor {
     return x;
   }
 
+  /**
+   * Calculates the absolute number
+   * @param value number to change
+   * @returns absolute number
+   */
   private abs(value: number) {
     return value < 0 ? -value : value;
   }
 
+  /**
+   * Calculates the power of a number
+   * @param base
+   * @param exponent
+   * @returns the result of power operation
+   */
   private pow(base: number, exponent: number) {
     let result = 1;
     for (let i = 0; i < exponent; i++) {

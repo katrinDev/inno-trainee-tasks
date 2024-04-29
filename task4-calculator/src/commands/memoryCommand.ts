@@ -1,4 +1,4 @@
-import { MemoryStore } from "../memoryStore/memoryStore";
+import { MemoryStore } from "../executors/memoryStore";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
@@ -9,6 +9,10 @@ export enum MemoryOptnType {
   memoryClear,
 }
 
+/**
+ * Command that processes memory operations
+ * @class
+ */
 export class MemoryCommand extends Command {
   type: MemoryOptnType;
 
@@ -36,7 +40,7 @@ export class MemoryCommand extends Command {
         (this.executor as MemoryStore).memoryAdd(argument);
         break;
       case MemoryOptnType.memorySubstact:
-        (this.executor as MemoryStore).memorySubstract(argument);
+        (this.executor as MemoryStore).memorySubtract(argument);
         break;
       case MemoryOptnType.memoryRecall:
         this.saveBackup();
@@ -50,7 +54,7 @@ export class MemoryCommand extends Command {
         this.output.textContent = this.calcState.x;
         return true;
       case MemoryOptnType.memoryClear:
-        (this.executor as MemoryStore).memorySubstract(argument);
+        (this.executor as MemoryStore).memorySubtract(argument);
         break;
     }
     return false;

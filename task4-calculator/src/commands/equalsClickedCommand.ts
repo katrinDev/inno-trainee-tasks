@@ -5,6 +5,10 @@ import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
+/**
+ * Command that processes equals button click
+ * @class
+ */
 export class EqualsClickedCommand extends Command {
   constructor(
     calcState: CalculationState,

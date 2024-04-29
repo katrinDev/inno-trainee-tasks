@@ -1,6 +1,7 @@
 /**
  * @module main
- * @description Contains main logic for handling document events */
+ * @description Contains main logic for handling document events
+ */
 
 import {
   anyPowerOptn,
@@ -9,7 +10,6 @@ import {
   cubeRoot,
   equalsClicked,
   operandsChange,
-  output,
   percentOptn,
   reciprocal,
   signChangeOptn,
@@ -74,6 +74,9 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
+  /**
+   * If a power operation was clicked
+   */
   if (target.classList.contains("power-oprtn")) {
     switch (target.id) {
       case "square":
@@ -93,6 +96,9 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
+  /**
+   * If a root operation was clicked
+   */
   if (target.classList.contains("root-oprtn")) {
     switch (target.id) {
       case "square-root":
@@ -109,16 +115,26 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
+  /**
+   * If a reciprocal operation button was clicked
+   */
   if (target.id === "reciprocal") {
     reciprocal();
     return;
   }
 
+  /**
+   * If a factorial operation button was clicked
+   */
   if (target.id === "factorial") {
     factorial();
     return;
   }
 
+  /**
+   * If either sign change operation or
+   * getting percent operation was clicked
+   */
   if (target.classList.contains("convert-operator")) {
     switch (target.id) {
       case "sign-change":
@@ -132,6 +148,9 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
+  /**
+   * If a memory operation was clicked
+   */
   if (target.classList.contains("memory-operation")) {
     switch (target.id) {
       case "mc":
@@ -150,10 +169,10 @@ document.querySelector(".buttons")?.addEventListener("click", (event) => {
     return;
   }
 
+  /**
+   * If an equels button was clicked
+   */
   if (key === "=") {
-    /**
-     * If an equels button was clicked
-     */
     equalsClicked();
   }
 });

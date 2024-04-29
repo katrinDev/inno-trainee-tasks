@@ -15,6 +15,10 @@ export enum UnaryOprtnType {
   factorial,
 }
 
+/**
+ * Command that processes unary operations
+ * @class
+ */
 export class UnaryOperatorsCommand extends Command {
   type: UnaryOprtnType;
 

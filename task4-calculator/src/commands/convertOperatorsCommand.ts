@@ -1,12 +1,19 @@
 import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
-
+/**
+ * Specifies the type of the operation
+ * @enum
+ */
 export enum ConvertOprtnType {
   percent,
   signChange,
 }
 
+/**
+ * Command that processes convert operations
+ * @class
+ */
 export class ConvertOperatorsCommand extends Command {
   type: ConvertOprtnType;
 
