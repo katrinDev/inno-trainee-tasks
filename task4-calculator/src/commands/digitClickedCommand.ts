@@ -10,6 +10,8 @@ export class DigitClickedCommand extends Command {
   }
 
   execute() {
+    if (this.calcState.x === "Error") return false;
+
     this.saveBackup();
 
     if (
@@ -28,7 +30,6 @@ export class DigitClickedCommand extends Command {
       this.calcState.isFirstCalculation = true;
     }
 
-    console.log("After:" + JSON.stringify(this.calcState));
     return true;
   }
 }

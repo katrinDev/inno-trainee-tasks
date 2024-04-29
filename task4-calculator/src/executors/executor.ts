@@ -67,7 +67,7 @@ export class Executor {
     }
   }
 
-  protected nthRoot(value: number, root: number) {
+  nthRoot(value: number, root: number) {
     if (root < 0) {
       throw new NegativeRootError();
     }

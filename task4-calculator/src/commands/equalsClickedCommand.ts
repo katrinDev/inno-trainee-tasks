@@ -1,3 +1,5 @@
+import { FactorialError } from "../errors/factorialError";
+import { RootOperationError } from "../errors/rootOperationError";
 import { ZeroDivisionError } from "../errors/zeroDivisionError";
 import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
@@ -13,16 +15,15 @@ export class EqualsClickedCommand extends Command {
   }
 
   execute() {
-    this.saveBackup();
-
-    /**
-     * If there were incorrect operation before
-     */
-    if (this.calcState.x === "Error") return false;
-
-    if (this.calcState.y === "") this.calcState.y = this.calcState.x;
-
     try {
+      this.saveBackup();
+
+      /**
+       * If there were incorrect operation before
+       */
+      if (this.calcState.x === "Error") return false;
+
+      if (this.calcState.y === "") this.calcState.y = this.calcState.x;
       this.calcState.x = this.executor
         .countBinaryOperation(
           +this.calcState.x,
@@ -30,21 +31,27 @@ export class EqualsClickedCommand extends Command {
           this.calcState.sign
         )
         .toString();
+
+      this.output.textContent = this.resultFormatter.stringCropping(
+        this.calcState.x
+      );
+
+      return true;
     } catch (err) {
-      if (err instanceof ZeroDivisionError) {
+      if (
+        err instanceof ZeroDivisionError ||
+        err instanceof RootOperationError ||
+        err instanceof FactorialError
+      ) {
         this.calcState.x = "Error";
         this.output.textContent = this.calcState.x;
       }
+
+      return false;
     } finally {
       this.calcState.sign = "";
       this.calcState.y = "";
       this.calcState.isFirstCalculation = false;
     }
-
-    this.output.textContent = this.resultFormatter.stringCropping(
-      this.calcState.x
-    );
-
-    return true;
   }
 }

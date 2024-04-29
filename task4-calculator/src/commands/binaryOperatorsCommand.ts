@@ -1,3 +1,4 @@
+import { RootOperationError } from "../errors/rootOperationError";
 import { ZeroDivisionError } from "../errors/zeroDivisionError";
 import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
@@ -17,19 +18,19 @@ export class BinaryOperatorsCommand extends Command {
   }
 
   execute() {
-    /**
-     * If there were incorrect operation before
-     */
-    if (this.calcState.x === "Error") return false;
+    try {
+      /**
+       * If there were incorrect operation before
+       */
+      if (this.calcState.x === "Error") return false;
 
-    this.saveBackup();
+      this.saveBackup();
 
-    this.output.textContent = this.key;
+      this.output.textContent = this.key;
 
-    if (this.calcState.sign !== "") {
-      if (this.calcState.y === "") this.calcState.y = this.calcState.x;
+      if (this.calcState.sign !== "") {
+        if (this.calcState.y === "") this.calcState.y = this.calcState.x;
 
-      try {
         this.calcState.x = this.executor
           .countBinaryOperation(
             +this.calcState.x,
@@ -37,23 +38,28 @@ export class BinaryOperatorsCommand extends Command {
             this.calcState.sign
           )
           .toString();
-      } catch (err) {
-        if (err instanceof ZeroDivisionError) {
-          this.calcState.x = "Error";
-          this.output.textContent = this.calcState.x;
-        }
-      } finally {
-        this.calcState.y = "";
-        this.calcState.isFirstCalculation = false;
+
+        this.output.textContent = this.resultFormatter.stringCropping(
+          this.calcState.x
+        );
       }
 
-      this.output.textContent = this.resultFormatter.stringCropping(
-        this.calcState.x
-      );
+      this.calcState.sign = this.key;
+
+      return true;
+    } catch (err) {
+      if (
+        err instanceof ZeroDivisionError ||
+        err instanceof RootOperationError
+      ) {
+        this.calcState.x = "Error";
+        this.output.textContent = this.calcState.x;
+      }
+
+      return false;
+    } finally {
+      this.calcState.y = "";
+      this.calcState.isFirstCalculation = false;
     }
-
-    this.calcState.sign = this.key;
-
-    return true;
   }
 }
