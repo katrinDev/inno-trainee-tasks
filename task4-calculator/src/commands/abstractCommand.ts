@@ -30,14 +30,17 @@ export abstract class Command {
 
   saveBackup() {
     this.backup = {
-      calcState: this.calcState,
+      calcState: new CalculationState(),
       outputText: this.output.textContent ?? "0",
     };
+
+    Object.assign(this.backup.calcState, this.calcState);
   }
 
   undo() {
-    this.calcState = this.backup?.calcState ?? this.calcState;
     this.output.textContent =
       this.backup?.outputText ?? this.output.textContent;
+
+    Object.assign(this.calcState, this.backup?.calcState ?? this.calcState);
   }
 }

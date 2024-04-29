@@ -28,4 +28,14 @@ export default [
       "comma-dangle": 0,
     },
   },
+  {
+    overrides: [
+      {
+        files: ["tests/**/*"],
+        env: {
+          jest: true,
+        },
+      },
+    ],
+  },
 ];

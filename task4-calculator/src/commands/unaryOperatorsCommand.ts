@@ -2,23 +2,27 @@ import { Executor } from "../executors/executor";
 import { CalculationState } from "../state/calculationState";
 import { Command } from "./abstractCommand";
 
-export enum Power {
-  square,
-  cube,
+export enum UnaryOprtnType {
+  squarePower,
+  cubePower,
   tenInPower,
+  squareRoot,
+  cubeRoot,
+  reciprocal,
+  factorial,
 }
 
-export class PowerOptnCommand extends Command {
-  power: Power;
+export class UnaryOperatorsCommand extends Command {
+  type: UnaryOprtnType;
 
   constructor(
     calcState: CalculationState,
     output: HTMLElement,
     executor: Executor,
-    power: Power
+    operationType: UnaryOprtnType
   ) {
     super(calcState, output, executor);
-    this.power = power;
+    this.type = operationType;
   }
 
   execute() {
@@ -29,23 +33,31 @@ export class PowerOptnCommand extends Command {
 
     this.saveBackup();
 
-    // let argument =
-    //   this.calcState.y === "" || !this.calcState.isFirstCalculation
-    //     ? +this.calcState.x
-    //     : +this.calcState.y;
     let argument =
       this.calcState.y === "" ? +this.calcState.x : +this.calcState.y;
     let result: number = +this.calcState.x;
 
-    switch (this.power) {
-      case Power.square:
+    switch (this.type) {
+      case UnaryOprtnType.squarePower:
         result = this.executor.squarePower(argument);
         break;
-      case Power.cube:
+      case UnaryOprtnType.cubePower:
         result = this.executor.cubePower(argument);
         break;
-      case Power.tenInPower:
+      case UnaryOprtnType.tenInPower:
         result = this.executor.tenInPower(argument);
+        break;
+      case UnaryOprtnType.squareRoot:
+        result = this.executor.nthRoot(argument, 2);
+        break;
+      case UnaryOprtnType.cubeRoot:
+        result = this.executor.nthRoot(argument, 3);
+        break;
+      case UnaryOprtnType.reciprocal:
+        result = this.executor.reciprocal(argument);
+        break;
+      case UnaryOprtnType.factorial:
+        result = this.executor.factorial(argument);
         break;
     }
 

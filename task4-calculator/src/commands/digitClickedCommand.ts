@@ -25,7 +25,10 @@ export class DigitClickedCommand extends Command {
     } else {
       this.calcState.x = this.key;
       this.output.textContent = this.calcState.x;
+      this.calcState.isFirstCalculation = true;
     }
+
+    console.log("After:" + JSON.stringify(this.calcState));
     return true;
   }
 }
