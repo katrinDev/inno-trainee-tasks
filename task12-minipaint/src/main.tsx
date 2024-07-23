@@ -1,3 +1,4 @@
+import { CssBaseline } from "@mui/material";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
@@ -8,12 +9,13 @@ import theme from "./theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <StyledEngineProvider injectFirst>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <StyledEngineProvider injectFirst>
+        <Provider store={store}>
           <App />
-        </ThemeProvider>
-      </Provider>
-    </StyledEngineProvider>
+        </Provider>
+      </StyledEngineProvider>
+    </ThemeProvider>
   </StrictMode>
 );

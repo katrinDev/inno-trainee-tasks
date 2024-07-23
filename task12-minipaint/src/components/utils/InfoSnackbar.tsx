@@ -7,25 +7,16 @@ type SnackbarProps = {
   isOpen: boolean;
   severity: AlertSeverity;
   text: string;
+  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void;
 };
 
 export default function InfoSnackbar({
   isOpen,
   severity,
   text,
+  handleClose,
 }: SnackbarProps) {
   const [open, setIsOpen] = useState<boolean>(isOpen);
-
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway" && event) {
-      return;
-    }
-
-    setIsOpen(false);
-  };
 
   return (
     <Snackbar

@@ -30,8 +30,8 @@ export default class Line extends Tool {
 
     [this.startX, this.startY] = this.calculatePosition(e.clientX, e.clientY);
 
-    // this.ctx.beginPath();
-    // this.ctx.moveTo(this.startX, this.startY);
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.startX, this.startY);
 
     this.saved = this.canvas.toDataURL();
   }

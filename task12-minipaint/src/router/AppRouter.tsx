@@ -11,7 +11,7 @@ import BasicLayout from "../pages/layout/BasicLayout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProjectsPage />,
+    element: <BasicLayout></BasicLayout>,
     errorElement: <NotFoundPage />,
   },
   {
@@ -32,7 +32,6 @@ const router = createBrowserRouter([
       </RequireAuth>
     ),
   },
-
   {
     path: PROJECT,
     element: (

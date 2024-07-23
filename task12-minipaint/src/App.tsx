@@ -1,12 +1,16 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { supabase } from "./supabase/supabaseClient";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/AppRouter";
-import { Alert, CssBaseline, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { setSession, updateUserAuthInfo } from "./state/authInfo/authInfoSlice";
+import {
+  setIsLoading,
+  setSession,
+  updateUserAuthInfo,
+} from "./state/authInfo/authInfoSlice";
 import { AppDispatch, RootState } from "./state/store";
 import { closeSnackbar } from "./state/snackbar/snackbarSlice";
+import InfoSnackbar from "./components/utils/InfoSnackbar";
 
 function App() {
   const snackbarProps = useSelector((state: RootState) => state.snackbar);
@@ -36,23 +40,13 @@ function App() {
 
   return (
     <>
-      <CssBaseline />
       <RouterProvider router={router} />
-      <Snackbar
-        open={snackbarProps.isOpen}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        autoHideDuration={3000}
-        onClose={handleClose}
-      >
-        <Alert
-          onClose={handleClose}
-          severity={snackbarProps.severity}
-          variant="standard"
-          sx={{ width: "100%" }}
-        >
-          {snackbarProps.text}
-        </Alert>
-      </Snackbar>
+      <InfoSnackbar
+        isOpen={snackbarProps.isOpen}
+        severity={snackbarProps.severity}
+        text={snackbarProps.text}
+        handleClose={handleClose}
+      />
     </>
   );
 }

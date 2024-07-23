@@ -28,7 +28,7 @@ export default class Rectangle extends Tool {
   mouseDownHandler(e: MouseEvent) {
     this.isMouseDown = true;
 
-    this.ctx.beginPath;
+    this.ctx.beginPath();
 
     [this.startX, this.startY] = this.calculatePosition(e.clientX, e.clientY);
     this.saved = this.canvas.toDataURL();

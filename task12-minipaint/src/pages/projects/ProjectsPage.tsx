@@ -1,32 +1,46 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { RootState } from "../../state/store";
+import { AppDispatch, RootState } from "../../state/store";
+import { Suspense, useEffect, useState } from "react";
+import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
+import ProjectsService from "../../services/ProjectsService";
+import { setProjects } from "../../state/projects/projectsSlice";
+import { CircularProgress, Container } from "@mui/material";
+import ProjectsList from "../../components/projects/ProjectsList";
+import Spinner from "../../components/utils/Spinner";
 
 export default function ProjectsPage() {
   const authInfo = useSelector((state: RootState) => state.authInfo);
+  const userProjects = useSelector(
+    (state: RootState) => state.projects.projects
+  );
+  const dispatch = useDispatch<AppDispatch>();
 
-  let arr = [1, 2, 3];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data, error } = await ProjectsService.getAllUserProjects(
+          authInfo.userId
+        );
+
+        if (data) dispatch(setProjects(data));
+        else throw new Error(error.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          dispatch(setSnackbarProps({ severity: "error", text: err.message }));
+        }
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
-      <div className="flex flex-col gap-2">
-        {arr.map((project) => (
-          <Link key={project} to={`/projects/${project}`}>
-            Project {project}
-          </Link>
-        ))}
-        <div>{authInfo.session?.user?.user_metadata.full_name}</div>
-
-        {authInfo.isEmailVerified ? (
-          <div>Verified </div>
-        ) : (
-          <div>Unverified </div>
-        )}
-        {authInfo.isUserAuthorized ? (
-          <div>Authorized </div>
-        ) : (
-          <div>Unauthorized </div>
-        )}
-      </div>
+      <Suspense fallback={<Spinner />}>
+        <Container maxWidth="lg" sx={{ my: 4 }}>
+          <ProjectsList projects={userProjects} />
+        </Container>
+      </Suspense>
     </>
   );
 }

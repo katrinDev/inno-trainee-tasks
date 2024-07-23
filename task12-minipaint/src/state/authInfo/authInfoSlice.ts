@@ -9,6 +9,7 @@ import { supabase } from "../../supabase/supabaseClient";
 
 type UserInfo = {
   session: Session | null;
+  userId: string;
   email: string;
   fullName: string;
   isEmailVerified: boolean;
@@ -18,6 +19,7 @@ type UserInfo = {
 
 const initialState: UserInfo = {
   session: null,
+  userId: "",
   email: "",
   fullName: "",
   isEmailVerified: false,
@@ -32,6 +34,9 @@ const userSlice = createSlice({
     setSession: (state, action: PayloadAction<Session | null>) => {
       state.session = action.payload;
     },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,10 +46,15 @@ const userSlice = createSlice({
       .addCase(
         updateUserAuthInfo.fulfilled,
         (state, action: PayloadAction<User | null>) => {
+          console.log(action.payload);
           state.isUserAuthorized = !!action.payload;
           state.isEmailVerified = !!action.payload?.email_confirmed_at;
+
+          state.userId = action.payload?.id ?? "";
           state.email = action.payload?.email ?? "";
           state.fullName = action.payload?.user_metadata.full_name ?? "";
+
+          console.log(state.isUserAuthorized);
           state.isLoading = false;
         }
       );
@@ -56,9 +66,10 @@ export const updateUserAuthInfo: AsyncThunk<User | null, void, {}> =
     const {
       data: { user },
     } = await supabase.auth.getUser();
+
     return user;
   });
 
-export const { setSession } = userSlice.actions;
+export const { setSession, setIsLoading } = userSlice.actions;
 
 export default userSlice.reducer;

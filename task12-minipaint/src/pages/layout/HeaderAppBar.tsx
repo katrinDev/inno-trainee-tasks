@@ -41,7 +41,7 @@ export default function HeaderAppBar() {
 
   return (
     <AppBar position="static">
-      <ToolbarContainer maxWidth="xl">
+      <ToolbarContainer maxWidth="lg">
         <Toolbar disableGutters>
           <PaletteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <LogoTypography

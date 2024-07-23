@@ -23,9 +23,9 @@ export default class Brush extends Tool {
     this.isMouseDown = true;
 
     //we started to draw new line
-    this.ctx.beginPath;
+    this.ctx.beginPath();
     const [x, y] = this.calculatePosition(e.clientX, e.clientY);
-    //move to cursor to the start point
+
     this.ctx.moveTo(x, y);
   }
 

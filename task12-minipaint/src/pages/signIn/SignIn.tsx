@@ -1,4 +1,11 @@
-import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  CircularProgress,
+  TextField,
+  Typography,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { styled } from "@mui/material/styles";
 import AuthContainer from "../layout/AuthContainer";
@@ -10,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../state/store";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import AuthService from "../../services/AuthService";
+import Spinner from "../../components/utils/Spinner";
 
 export const AuthMainBox = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(10),
@@ -74,7 +82,7 @@ export default function SignIn() {
   }, [isSubmitSuccessful]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   } else {
     return (
       <AuthContainer>

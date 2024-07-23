@@ -8,8 +8,6 @@ const MainContent = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   height: `calc(100dvh - ${theme.custom.headerHeight})`,
   overflow: "auto",
-  alignItems: "center",
-  justifyContent: "center",
 }));
 
 export default function BasicLayout({ children }: React.PropsWithChildren) {
