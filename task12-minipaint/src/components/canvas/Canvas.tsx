@@ -8,7 +8,7 @@ import UndoRoundedIcon from "@mui/icons-material/UndoRounded";
 import RedoRoundedIcon from "@mui/icons-material/RedoRounded";
 import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
 import { useDispatch, useSelector } from "react-redux";
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import {
   CanvasBlock,
   CanvasContainer,
@@ -28,26 +28,44 @@ import Circle from "../../tools/Circle";
 import Eraser from "../../tools/Eraser";
 import Line from "../../tools/Line";
 import StorageService from "../../services/StorageService";
-import ProjectsService from "../../services/ProjectsService";
 import { RootState } from "../../state/store";
-import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import Spinner from "../utils/Spinner";
+import ModalAsk from "../projects/SaveProjectModal";
+import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
+import ProjectsService from "../../services/ProjectsService";
+import {
+  setCurrentPrName,
+  setCurrentProject,
+  setProjects,
+} from "../../state/projects/projectsSlice";
+import { useNavigate } from "react-router-dom";
+import { PROJECTS } from "../../router/paths";
 
 type ToolButton = {
   icon: React.ReactElement;
   onClick: () => void;
 };
 
-export default function Canvas() {
+type CanvasProps = {
+  isNew: boolean;
+};
+
+export default function Canvas({ isNew }: CanvasProps) {
   const dispatch = useDispatch();
-  const userId = useSelector((state: RootState) => state.authInfo.userId);
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const currentProject = useSelector(
     (state: RootState) => state.projects.currentProject
   );
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const projects = useSelector((state: RootState) => state.projects.projects);
   let colorBeforeEraser = useRef<string | CanvasGradient | CanvasPattern>("");
   let isPrevEraser = useRef<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [saveModalIsOpen, setSaveModalIsOpen] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -76,7 +94,9 @@ export default function Canvas() {
       dispatch(setTool(new Brush(canvas)));
     }
 
-    drawCurrentProject();
+    if (!isNew) {
+      drawCurrentProject();
+    }
   }, [currentProject]);
 
   const eraserColorCheck = () => {
@@ -87,35 +107,24 @@ export default function Canvas() {
     }
   };
 
-  const handleSaveProject = async () => {
+  const editProjectHandle = async () => {
     try {
-      if (canvasRef.current) {
-        let fileName: string = "";
+      if (canvasRef.current && currentProject) {
         canvasRef.current.toBlob(async (blob) => {
-          const { data, error } = await StorageService.fileUpload(blob!);
+          const { data, error } = await StorageService.updateFile(
+            currentProject.file_name,
+            blob!
+          );
 
-          if (data) {
-            fileName = data.path.split("/")[1];
+          if (error) throw new Error(error.message);
 
-            const { data: dbData, error: dbError } =
-              await ProjectsService.insertProject({
-                file_name: fileName,
-                project_name: "Колобок",
-                user_id: userId,
-              });
-
-            if (dbError) throw new Error(dbError.message);
-          } else {
-            throw new Error(error.message);
-          }
+          dispatch(
+            setSnackbarProps({
+              severity: "success",
+              text: `Project '${currentProject.project_name}' was updated successfully`,
+            })
+          );
         });
-
-        dispatch(
-          setSnackbarProps({
-            severity: "success",
-            text: "Project was saved successfully",
-          })
-        );
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -179,8 +188,9 @@ export default function Canvas() {
     { icon: <RedoRoundedIcon />, onClick: () => {} },
     {
       icon: <SaveRoundedIcon sx={{ color: "success.main" }} />,
-      onClick: async () => {
-        handleSaveProject();
+      onClick: () => {
+        if (isNew) setSaveModalIsOpen(true);
+        else editProjectHandle();
       },
     },
   ];
@@ -235,6 +245,13 @@ export default function Canvas() {
       <CanvasContainer>
         <CanvasBlock ref={canvasRef} width={600} height={400} />
       </CanvasContainer>
+      <ModalAsk
+        isOpen={saveModalIsOpen}
+        setIsOpen={setSaveModalIsOpen}
+        canvasRef={canvasRef}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      />
     </Suspense>
   );
 }

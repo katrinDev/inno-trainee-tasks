@@ -1,14 +1,18 @@
-import { Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import ProjectCard from "./ProjectCard";
+import { Suspense } from "react";
+import Spinner from "../utils/Spinner";
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
   return (
-    <>
-      <Stack direction="row" spacing={{ xs: 1, sm: 2, md: 4 }}>
+    <Suspense fallback={<Spinner />}>
+      <Grid container spacing={3}>
         {projects.map((project) => (
-          <ProjectCard project={project} key={project.id} />
+          <Grid item xs={3} key={project.id}>
+            <ProjectCard project={project} />
+          </Grid>
         ))}
-      </Stack>
-    </>
+      </Grid>
+    </Suspense>
   );
 }

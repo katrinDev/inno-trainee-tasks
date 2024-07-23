@@ -10,7 +10,7 @@ import { AppDispatch, RootState } from "../../state/store";
 import { Toolbar, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import { PROJECTS } from "../../router/paths";
+import { CREATE_PROJECT, PROJECTS } from "../../router/paths";
 import AuthService from "../../services/AuthService";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 
@@ -42,16 +42,18 @@ export default function HeaderAppBar() {
   return (
     <AppBar position="static">
       <ToolbarContainer maxWidth="lg">
-        <Toolbar disableGutters>
-          <PaletteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <LogoTypography
-            noWrap
-            sx={{
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            Mini-paint
-          </LogoTypography>
+        <Toolbar disableGutters sx={{ gap: 2 }}>
+          <div style={{ display: "flex" }}>
+            <PaletteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <LogoTypography
+              noWrap
+              sx={{
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              Mini-paint
+            </LogoTypography>
+          </div>
 
           <Button
             component={Link}
@@ -59,6 +61,14 @@ export default function HeaderAppBar() {
             sx={{ color: "white", display: "block" }}
           >
             Board
+          </Button>
+
+          <Button
+            component={Link}
+            to={CREATE_PROJECT}
+            sx={{ color: "white", display: "block" }}
+          >
+            New project
           </Button>
         </Toolbar>
 

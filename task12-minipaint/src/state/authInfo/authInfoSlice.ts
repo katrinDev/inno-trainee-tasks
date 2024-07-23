@@ -46,7 +46,6 @@ const userSlice = createSlice({
       .addCase(
         updateUserAuthInfo.fulfilled,
         (state, action: PayloadAction<User | null>) => {
-          console.log(action.payload);
           state.isUserAuthorized = !!action.payload;
           state.isEmailVerified = !!action.payload?.email_confirmed_at;
 
@@ -54,7 +53,6 @@ const userSlice = createSlice({
           state.email = action.payload?.email ?? "";
           state.fullName = action.payload?.user_metadata.full_name ?? "";
 
-          console.log(state.isUserAuthorized);
           state.isLoading = false;
         }
       );

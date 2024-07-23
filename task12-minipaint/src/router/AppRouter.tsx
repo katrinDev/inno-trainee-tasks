@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import SignIn from "../pages/signIn/SignIn";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
-import { PROJECT, PROJECTS, SIGN_IN, SIGN_UP } from "./paths";
+import { CREATE_PROJECT, PROJECT, PROJECTS, SIGN_IN, SIGN_UP } from "./paths";
 import ProjectsPage from "../pages/projects/ProjectsPage";
 import ProjectPage from "../pages/project/ProjectPage";
 import SignUp from "../pages/signUp/SignUp";
@@ -37,7 +37,17 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <BasicLayout>
-          <ProjectPage />
+          <ProjectPage key={PROJECT} />
+        </BasicLayout>
+      </RequireAuth>
+    ),
+  },
+  {
+    path: CREATE_PROJECT,
+    element: (
+      <RequireAuth>
+        <BasicLayout>
+          <ProjectPage key={CREATE_PROJECT} />
         </BasicLayout>
       </RequireAuth>
     ),

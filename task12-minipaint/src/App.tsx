@@ -1,13 +1,9 @@
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { supabase } from "./supabase/supabaseClient";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/AppRouter";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setIsLoading,
-  setSession,
-  updateUserAuthInfo,
-} from "./state/authInfo/authInfoSlice";
+import { setSession, updateUserAuthInfo } from "./state/authInfo/authInfoSlice";
 import { AppDispatch, RootState } from "./state/store";
 import { closeSnackbar } from "./state/snackbar/snackbarSlice";
 import InfoSnackbar from "./components/utils/InfoSnackbar";

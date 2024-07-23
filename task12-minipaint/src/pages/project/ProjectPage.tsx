@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Canvas from "../../components/canvas/Canvas";
@@ -9,7 +9,7 @@ import { Suspense, useEffect } from "react";
 import Spinner from "../../components/utils/Spinner";
 
 type ProjectParams = {
-  projectId: string;
+  id: string;
 };
 
 const BoardContainer = styled(Box)(({ theme }) => ({
@@ -21,16 +21,16 @@ const BoardContainer = styled(Box)(({ theme }) => ({
 }));
 
 export default function ProjectPage() {
-  const params = useParams<ProjectParams>();
+  const { id } = useParams<ProjectParams>();
   const projectsSlice = useSelector((state: RootState) => state.projects);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const ourProject = projectsSlice.projects.find(
-      (pr) => pr.id === params.projectId
-    );
+    if (id) {
+      const ourProject = projectsSlice.projects!.find((pr) => pr.id === id);
 
-    if (ourProject) dispatch(setCurrentProject(ourProject));
+      if (ourProject) dispatch(setCurrentProject(ourProject));
+    }
   }, []);
 
   return (
@@ -45,13 +45,13 @@ export default function ProjectPage() {
             height: "100%",
           }}
         >
-          {projectsSlice.currentProject?.project_name && (
+          {id && projectsSlice.currentProject?.project_name && (
             <Typography variant="h6">
               {projectsSlice.currentProject.project_name}
             </Typography>
           )}
           <BoardContainer>
-            <Canvas />
+            <Canvas isNew={!id} />
           </BoardContainer>
         </Box>
       </Suspense>

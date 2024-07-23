@@ -16,11 +16,9 @@ export default function InfoSnackbar({
   text,
   handleClose,
 }: SnackbarProps) {
-  const [open, setIsOpen] = useState<boolean>(isOpen);
-
   return (
     <Snackbar
-      open={open}
+      open={isOpen}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       autoHideDuration={3000}
       onClose={handleClose}

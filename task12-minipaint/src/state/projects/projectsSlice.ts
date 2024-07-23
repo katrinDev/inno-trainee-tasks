@@ -17,11 +17,17 @@ const projectsSlice = createSlice({
     setProjects: (state, action: PayloadAction<Project[]>) => {
       state.projects = action.payload;
     },
-    setCurrentProject: (state, action: PayloadAction<Project>) => {
+    setCurrentProject: (state, action: PayloadAction<Project | null>) => {
       state.currentProject = action.payload;
+    },
+    setCurrentPrName: (state, action: PayloadAction<string>) => {
+      if (state.currentProject) {
+        state.currentProject.project_name = action.payload;
+      }
     },
   },
 });
 
-export const { setProjects, setCurrentProject } = projectsSlice.actions;
+export const { setProjects, setCurrentProject, setCurrentPrName } =
+  projectsSlice.actions;
 export default projectsSlice.reducer;

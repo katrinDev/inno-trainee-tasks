@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import ProjectsService from "../../services/ProjectsService";
 import { setProjects } from "../../state/projects/projectsSlice";
-import { CircularProgress, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import ProjectsList from "../../components/projects/ProjectsList";
 import Spinner from "../../components/utils/Spinner";
 
@@ -21,7 +21,6 @@ export default function ProjectsPage() {
         const { data, error } = await ProjectsService.getAllUserProjects(
           authInfo.userId
         );
-
         if (data) dispatch(setProjects(data));
         else throw new Error(error.message);
       } catch (err) {
@@ -38,7 +37,7 @@ export default function ProjectsPage() {
     <>
       <Suspense fallback={<Spinner />}>
         <Container maxWidth="lg" sx={{ my: 4 }}>
-          <ProjectsList projects={userProjects} />
+          <ProjectsList projects={userProjects!} />
         </Container>
       </Suspense>
     </>

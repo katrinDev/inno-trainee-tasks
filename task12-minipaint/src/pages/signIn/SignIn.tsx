@@ -1,11 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  CircularProgress,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { styled } from "@mui/material/styles";
 import AuthContainer from "../layout/AuthContainer";
@@ -54,18 +47,13 @@ export default function SignIn() {
   const signInSubmit: SubmitHandler<SignInForm> = async (formData, event) => {
     event?.preventDefault();
     if (Object.keys(errors).length === 0) {
-      setIsLoading(true);
-      const { data, error } = await AuthService.signIn(formData);
+      try {
+        setIsLoading(true);
+        const { data, error } = await AuthService.signIn(formData);
 
-      setIsLoading(false);
-      if (error) {
-        dispatch(
-          setSnackbarProps({
-            severity: "error",
-            text: error.message,
-          })
-        );
-      } else {
+        setIsLoading(false);
+        if (error) throw new Error(error.message);
+
         navigate(PROJECTS);
         dispatch(
           setSnackbarProps({
@@ -73,6 +61,15 @@ export default function SignIn() {
             text: `Welcome, ${data.user.user_metadata.full_name}`,
           })
         );
+      } catch (err) {
+        if (err instanceof Error) {
+          dispatch(
+            setSnackbarProps({
+              severity: "error",
+              text: err.message,
+            })
+          );
+        }
       }
     }
   };

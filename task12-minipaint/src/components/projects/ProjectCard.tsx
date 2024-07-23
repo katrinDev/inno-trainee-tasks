@@ -3,21 +3,25 @@ import {
   CardActions,
   CardHeader,
   CardMedia,
-  CircularProgress,
   IconButton,
 } from "@mui/material";
 import { Suspense, useEffect, useState } from "react";
 import StorageService from "../../services/StorageService";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
 import DrawRoundedIcon from "@mui/icons-material/DrawRounded";
 import { Link } from "react-router-dom";
 import Spinner from "../utils/Spinner";
+import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
+import ProjectsService from "../../services/ProjectsService";
+import { setProjects } from "../../state/projects/projectsSlice";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [projectUrl, setProjectUrl] = useState<string>("");
   const email = useSelector((state: RootState) => state.authInfo.email);
+  const dispatch = useDispatch<AppDispatch>();
+  const userId = useSelector((state: RootState) => state.authInfo.userId);
 
   useEffect(() => {
     async function getUrl() {
@@ -29,11 +33,45 @@ export default function ProjectCard({ project }: { project: Project }) {
     getUrl();
   }, []);
 
+  const deleteProject = async () => {
+    try {
+      const { data, error } = await StorageService.deleteFile(
+        project.file_name
+      );
+
+      if (error) throw new Error(error.message);
+
+      const { error: dbError } = await ProjectsService.deleteFile(
+        project.file_name
+      );
+
+      if (dbError) throw new Error(dbError.message);
+
+      const { data: projectsData, error: projectsError } =
+        await ProjectsService.getAllUserProjects(userId);
+
+      if (projectsError) throw new Error(projectsError.message);
+
+      dispatch(setProjects(projectsData));
+
+      dispatch(
+        setSnackbarProps({
+          severity: "success",
+          text: `Project ${project.project_name} was deleted successfully`,
+        })
+      );
+    } catch (err) {
+      if (err instanceof Error) {
+        dispatch(setSnackbarProps({ severity: "error", text: err.message }));
+      }
+    }
+  };
+
   return (
     <Suspense fallback={<Spinner />}>
       <Card
         sx={{
-          width: "18rem",
+          width: "17rem",
           filter: "drop-shadow(0px 5px 6px rgba(0, 0, 0, 0.1))",
         }}
       >
@@ -50,7 +88,11 @@ export default function ProjectCard({ project }: { project: Project }) {
               <DrawRoundedIcon />
             </IconButton>
           </Link>
-          <IconButton aria-label="delete" sx={{ color: "error.main" }}>
+          <IconButton
+            aria-label="delete"
+            sx={{ color: "error.main" }}
+            onClick={deleteProject}
+          >
             <DeleteRoundedIcon />
           </IconButton>
         </CardActions>

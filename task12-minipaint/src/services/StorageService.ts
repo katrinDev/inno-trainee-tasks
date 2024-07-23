@@ -7,9 +7,7 @@ export default class StorageService {
 
   static async fileUpload(blob: Blob) {
     const fileName = `canvas-${uuidv4()}.png`;
-    const file = new File([blob], `${fileName}`, {
-      type: "image/png",
-    });
+    const file = this.convertBlobToFile(blob, fileName);
 
     return supabase.storage
       .from(this.bucketName)
@@ -26,5 +24,25 @@ export default class StorageService {
     return supabase.storage
       .from(this.bucketName)
       .download(`${this.folderName}/${fileName}`);
+  }
+
+  static async updateFile(fileName: string, blob: Blob) {
+    const file = this.convertBlobToFile(blob, fileName);
+
+    return supabase.storage
+      .from(this.bucketName)
+      .update(`${this.folderName}/${fileName}`, file);
+  }
+
+  static async deleteFile(fileName: string) {
+    return supabase.storage
+      .from(this.bucketName)
+      .remove([`${this.folderName}/${fileName}`]);
+  }
+
+  private static convertBlobToFile(blob: Blob, fileName: string) {
+    return new File([blob], `${fileName}`, {
+      type: "image/png",
+    });
   }
 }
