@@ -29,10 +29,13 @@ const canvasUndoSlice = createSlice({
 
     undo: (state, action: PayloadAction<CanvasData>) => {
       if (state.undoList.length > 0) {
-        // state.undoList = state.undoList.slice(0, -1);
         let undoListCopy = state.undoList.slice();
+        let redoListCopy = state.redoList.slice();
 
         let dataUrl = undoListCopy.pop();
+
+        redoListCopy.push(dataUrl!);
+
         let img = new Image();
         img.src = dataUrl ?? "";
         img.onload = () => {
@@ -41,11 +44,42 @@ const canvasUndoSlice = createSlice({
           context.clearRect(0, 0, width, height);
           context.drawImage(img, 0, 0, width, height);
         };
+
         state.undoList = undoListCopy;
+        state.redoList = redoListCopy;
+
+        console.log("undo");
+        console.log(state.undoList, state.redoList);
+      }
+    },
+
+    redo: (state, action: PayloadAction<CanvasData>) => {
+      if (state.redoList.length > 0) {
+        let redoListCopy = state.redoList.slice();
+        let undoListCopy = state.undoList.slice();
+
+        let dataUrl = redoListCopy.pop();
+
+        undoListCopy.push(dataUrl!);
+
+        const img = new Image();
+        img.src = dataUrl ?? "";
+        img.onload = () => {
+          const { width, height, context } = action.payload;
+
+          context.clearRect(0, 0, width, height);
+          context.drawImage(img, 0, 0, width, height);
+        };
+
+        state.undoList = undoListCopy;
+        state.redoList = redoListCopy;
+
+        console.log("redo");
+        console.log(state.undoList, state.redoList);
       }
     },
   },
 });
 
-export const { pushToUndo, pushToRedo, undo } = canvasUndoSlice.actions;
+export const { pushToUndo, pushToRedo, undo, redo } = canvasUndoSlice.actions;
 export default canvasUndoSlice.reducer;

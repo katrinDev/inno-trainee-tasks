@@ -33,7 +33,7 @@ import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { useNavigate } from "react-router-dom";
-import { pushToUndo, undo } from "../../state/canvasUndo/canvasUndoSlice";
+import { pushToUndo, redo, undo } from "../../state/canvasUndo/canvasUndoSlice";
 
 type ToolButton = {
   icon: React.ReactElement;
@@ -52,14 +52,11 @@ export default function Canvas({ isNew }: CanvasProps) {
     (state: RootState) => state.projects.currentProject
   );
 
-  const projects = useSelector((state: RootState) => state.projects.projects);
   let colorBeforeEraser = useRef<string | CanvasGradient | CanvasPattern>("");
   let isPrevEraser = useRef<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [saveModalIsOpen, setSaveModalIsOpen] = useState<boolean>(false);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -193,7 +190,20 @@ export default function Canvas({ isNew }: CanvasProps) {
         }
       },
     },
-    { icon: <RedoRoundedIcon />, onClick: () => {} },
+    {
+      icon: <RedoRoundedIcon />,
+      onClick: () => {
+        if (canvasRef.current) {
+          dispatch(
+            redo({
+              width: canvasRef.current.width,
+              height: canvasRef.current.height,
+              context: canvasRef.current.getContext("2d")!,
+            })
+          );
+        }
+      },
+    },
     {
       icon: <SaveRoundedIcon sx={{ color: "success.main" }} />,
       onClick: () => {
