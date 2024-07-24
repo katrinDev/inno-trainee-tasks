@@ -26,7 +26,6 @@ const toolSlice = createSlice({
     },
     setLineWidth(state, action: PayloadAction<number>) {
       if (state.value) {
-        console.log("line width");
         state.value.lineWidth = action.payload;
       }
     },

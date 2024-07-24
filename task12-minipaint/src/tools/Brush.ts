@@ -22,7 +22,6 @@ export default class Brush extends Tool {
   mouseDownHandler(e: MouseEvent) {
     this.isMouseDown = true;
 
-    //we started to draw new line
     this.ctx.beginPath();
     const [x, y] = this.calculatePosition(e.clientX, e.clientY);
 
@@ -38,7 +37,6 @@ export default class Brush extends Tool {
 
   draw(x: number, y: number) {
     this.ctx.lineTo(x, y);
-    //sets outline
     this.ctx.stroke();
   }
 }

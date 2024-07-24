@@ -21,13 +21,11 @@ export default class Tool {
     this.ctx.lineWidth = width;
   }
 
-  //calculate coordinates of a point on canvas relative to the viewport
   calculatePosition(x: number, y: number): number[] {
     const rect = this.canvas.getBoundingClientRect();
     return [x - rect.left, y - rect.top];
   }
 
-  //to give an ability to bind their handlers to the next tools
   destroyEvents() {
     this.canvas.onmousemove = null;
     this.canvas.onmousedown = null;

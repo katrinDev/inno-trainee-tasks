@@ -47,9 +47,6 @@ const canvasUndoSlice = createSlice({
 
         state.undoList = undoListCopy;
         state.redoList = redoListCopy;
-
-        console.log("undo");
-        console.log(state.undoList, state.redoList);
       }
     },
 
@@ -73,9 +70,6 @@ const canvasUndoSlice = createSlice({
 
         state.undoList = undoListCopy;
         state.redoList = redoListCopy;
-
-        console.log("redo");
-        console.log(state.undoList, state.redoList);
       }
     },
   },

@@ -1,30 +1,98 @@
-# React + TypeScript + Vite
+# Minipaint
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Gallery of images with built-in graphics editor.
 
-Currently, two official plugins are available:
+## Task
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Minipaint task](https://drive.google.com/file/d/19cb4whI_HUVPzuaPyaj5r6hGotIVnhho/view?usp=sharing)
 
-## Expanding the ESLint configuration
+## How to run and tweak the app
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these steps to set up the project for future development:
 
-- Configure the top-level `parserOptions` property like this:
+1.  **Clone this repository**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+    Example using the web URL:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    ```bash
+    git clone https://github.com/katrinDev/inno-trainee-tasks.git
+
+    ```
+
+2.  **Navigate to the project directory**:
+
+    ```bash
+    cd ./inno-trainee-tasks/task12-minipaint
+    ```
+
+3.  **Install the dependencies**:
+
+    ```bash
+    yarn install
+    ```
+
+4.  **Start the project in development mode**:
+
+    ```bash
+    yarn dev
+    ```
+
+    This command runs the project in development mode and uses `vite`.  
+    Open http://localhost:3000 to view the app in a browser.  
+    Now you're ready to start developing!
+
+5.  **Test the calculation functions**:
+
+    ```bash
+    yarn test
+    ```
+
+    This command runs all the project tests using Jest.
+
+6.  **Build the project** (for production):
+
+    ```bash
+    yarn build
+    ```
+
+    This command runs the project in production mode.  
+    It correctly bundles the project modules and optimizes the build for the best performance.
+
+## Application stack
+
+Vite  
+React, Material UI  
+Typescript  
+Supabase Database + Auth + Storage
+
+## Project structure
+
+Apart from main files, the project has several directories, where files are divided by their purpose:
+
+- components
+
+  Stores reusable custom functional components.
+
+- pages
+
+  Stores components that are responsible for the whole pages.
+
+- router
+
+  Contains files that are needed for routing management.
+
+- services
+
+  Stores classes that are responsible for database and storage interaction logic.
+
+- state
+
+  All redux-toolkit slices for state management.
+
+- supabase
+
+  Stores files with supabase setup logic and database types.
+
+- tools
+
+  Stores classes for all available canvas tools for drawing different shapes.

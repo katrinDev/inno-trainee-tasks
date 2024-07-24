@@ -33,6 +33,8 @@ import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { pushToUndo, redo, undo } from "../../state/canvasUndo/canvasUndoSlice";
+import ProjectsService from "../../services/ProjectsService";
+import { setProjects } from "../../state/projects/projectsSlice";
 
 type ToolButton = {
   icon: React.ReactElement;
@@ -54,6 +56,8 @@ export default function Canvas({ isNew }: CanvasProps) {
   let colorBeforeEraser = useRef<string | CanvasGradient | CanvasPattern>("");
   let isPrevEraser = useRef<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const userId = useSelector((state: RootState) => state.authInfo.userId);
 
   const [saveModalIsOpen, setSaveModalIsOpen] = useState<boolean>(false);
 
