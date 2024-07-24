@@ -18,11 +18,13 @@ export default function ProjectsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data, error } = await ProjectsService.getAllUserProjects(
-          authInfo.userId
-        );
-        if (data) dispatch(setProjects(data));
-        else throw new Error(error.message);
+        if (!authInfo.isLoading) {
+          const { data, error } = await ProjectsService.getAllUserProjects(
+            authInfo.userId
+          );
+          if (data) dispatch(setProjects(data));
+          else throw new Error(error.message);
+        }
       } catch (err) {
         if (err instanceof Error) {
           dispatch(setSnackbarProps({ severity: "error", text: err.message }));

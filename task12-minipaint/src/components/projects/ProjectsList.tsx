@@ -6,9 +6,14 @@ import Spinner from "../utils/Spinner";
 export default function ProjectsList({ projects }: { projects: Project[] }) {
   return (
     <Suspense fallback={<Spinner />}>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} columns={{ xs: 4, sm: 8, md: 16 }}>
         {projects.map((project) => (
-          <Grid item xs={3} key={project.id}>
+          <Grid
+            item
+            key={project.id}
+            xs={4}
+            sx={{ justifyContent: "center", display: "flex" }}
+          >
             <ProjectCard project={project} />
           </Grid>
         ))}

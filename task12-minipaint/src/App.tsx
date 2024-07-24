@@ -3,7 +3,10 @@ import { supabase } from "./supabase/supabaseClient";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/AppRouter";
 import { useDispatch, useSelector } from "react-redux";
-import { setSession, updateUserAuthInfo } from "./state/authInfo/authInfoSlice";
+import {
+  setIsAuthorized,
+  updateUserAuthInfo,
+} from "./state/authInfo/authInfoSlice";
 import { AppDispatch, RootState } from "./state/store";
 import { closeSnackbar } from "./state/snackbar/snackbarSlice";
 import InfoSnackbar from "./components/utils/InfoSnackbar";
@@ -13,11 +16,12 @@ function App() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
+    dispatch(setIsAuthorized());
+
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event) => {
       dispatch(updateUserAuthInfo());
-      dispatch(setSession(session));
     });
 
     return () => subscription.unsubscribe();

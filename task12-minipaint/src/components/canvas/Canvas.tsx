@@ -32,7 +32,6 @@ import { RootState } from "../../state/store";
 import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
-import { useNavigate } from "react-router-dom";
 import { pushToUndo, redo, undo } from "../../state/canvasUndo/canvasUndoSlice";
 
 type ToolButton = {

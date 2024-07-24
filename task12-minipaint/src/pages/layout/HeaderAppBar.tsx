@@ -7,9 +7,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
-import { Toolbar, Button } from "@mui/material";
+import { Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CREATE_PROJECT, PROJECTS } from "../../router/paths";
 import AuthService from "../../services/AuthService";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
@@ -26,6 +26,13 @@ const LogoTypography = styled(Typography)(({ theme }) => ({
   fontWeight: 500,
   color: "inherit",
 }));
+
+const StyledNavLink = styled(NavLink)`
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+`;
 
 export default function HeaderAppBar() {
   const fullName = useSelector((state: RootState) => state.authInfo.fullName);
@@ -55,21 +62,27 @@ export default function HeaderAppBar() {
             </LogoTypography>
           </div>
 
-          <Button
-            component={Link}
+          <StyledNavLink
             to={PROJECTS}
-            sx={{ color: "white", display: "block" }}
+            style={({ isActive }) => {
+              return {
+                textDecoration: isActive ? "underline" : "none",
+              };
+            }}
           >
             Board
-          </Button>
+          </StyledNavLink>
 
-          <Button
-            component={Link}
+          <StyledNavLink
             to={CREATE_PROJECT}
-            sx={{ color: "white", display: "block" }}
+            style={({ isActive }) => {
+              return {
+                textDecoration: isActive ? "underline" : "none",
+              };
+            }}
           >
             New project
-          </Button>
+          </StyledNavLink>
         </Toolbar>
 
         <Box

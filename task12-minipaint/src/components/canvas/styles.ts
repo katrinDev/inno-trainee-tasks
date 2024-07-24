@@ -24,9 +24,18 @@ const CanvasContainer = styled("div")(({ theme }) => ({
   height: `calc(100% - ${theme.custom.canvasToolbarHeight} * 2)`,
 }));
 
-const CanvasBlock = styled("canvas")(() => ({
+const CanvasBlock = styled("canvas")(({ theme }) => ({
   backgroundColor: "white",
   border: "1px solid grey",
+  width: "37.5rem",
+  [theme.breakpoints.down("md")]: {
+    width: "30rem",
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    width: "22rem",
+    aspectRatio: "1/1.3",
+  },
 }));
 
 const NumberInput = styled("input")(() => ({

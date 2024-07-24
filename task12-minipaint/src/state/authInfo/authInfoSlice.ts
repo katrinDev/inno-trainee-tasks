@@ -4,11 +4,10 @@ import {
   createAsyncThunk,
   createSlice,
 } from "@reduxjs/toolkit";
-import { Session, User } from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
 import { supabase } from "../../supabase/supabaseClient";
 
 type UserInfo = {
-  session: Session | null;
   userId: string;
   email: string;
   fullName: string;
@@ -18,7 +17,6 @@ type UserInfo = {
 };
 
 const initialState: UserInfo = {
-  session: null,
   userId: "",
   email: "",
   fullName: "",
@@ -27,15 +25,28 @@ const initialState: UserInfo = {
   isLoading: false,
 };
 
+type AuthToken = {
+  access_token: string;
+  user: User;
+};
+
 const userSlice = createSlice({
   name: "userInfo",
   initialState,
   reducers: {
-    setSession: (state, action: PayloadAction<Session | null>) => {
-      state.session = action.payload;
-    },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
+    },
+    setIsAuthorized: (state) => {
+      let value = localStorage.getItem("sb-ogrnbqbiqeaxnsctflaz-auth-token");
+
+      if (value) {
+        state.isUserAuthorized = true;
+        const parsedValue = JSON.parse(value) as AuthToken;
+        if (value !== null) {
+          state.userId = parsedValue.user.id;
+        }
+      }
     },
   },
   extraReducers: (builder) => {
@@ -60,7 +71,7 @@ const userSlice = createSlice({
 });
 
 export const updateUserAuthInfo: AsyncThunk<User | null, void, {}> =
-  createAsyncThunk("session/getSession", async () => {
+  createAsyncThunk("userInfo/getUser", async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -68,6 +79,6 @@ export const updateUserAuthInfo: AsyncThunk<User | null, void, {}> =
     return user;
   });
 
-export const { setSession, setIsLoading } = userSlice.actions;
+export const { setIsLoading, setIsAuthorized } = userSlice.actions;
 
 export default userSlice.reducer;

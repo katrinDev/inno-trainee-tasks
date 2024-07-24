@@ -11,7 +11,13 @@ import BasicLayout from "../pages/layout/BasicLayout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <BasicLayout></BasicLayout>,
+    element: (
+      <RequireAuth>
+        <BasicLayout>
+          <ProjectsPage />
+        </BasicLayout>
+      </RequireAuth>
+    ),
     errorElement: <NotFoundPage />,
   },
   {

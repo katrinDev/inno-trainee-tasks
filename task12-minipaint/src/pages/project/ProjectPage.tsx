@@ -13,6 +13,15 @@ type ProjectParams = {
 };
 
 const BoardContainer = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    width: "34rem",
+    aspectRatio: "1.2/1",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "24rem",
+    aspectRatio: "1/1.5",
+  },
+
   width: "45rem",
   aspectRatio: "1.3/1",
   boxShadow: "0 4px 5px grey",
