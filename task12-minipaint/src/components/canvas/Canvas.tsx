@@ -32,14 +32,8 @@ import { RootState } from "../../state/store";
 import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
-import ProjectsService from "../../services/ProjectsService";
-import {
-  setCurrentPrName,
-  setCurrentProject,
-  setProjects,
-} from "../../state/projects/projectsSlice";
 import { useNavigate } from "react-router-dom";
-import { PROJECTS } from "../../router/paths";
+import { pushToUndo, undo } from "../../state/canvasUndo/canvasUndoSlice";
 
 type ToolButton = {
   icon: React.ReactElement;
@@ -133,6 +127,10 @@ export default function Canvas({ isNew }: CanvasProps) {
     }
   };
 
+  const mouseDownHandler = () => {
+    if (canvasRef.current) dispatch(pushToUndo(canvasRef.current.toDataURL()));
+  };
+
   const toolButtons: ToolButton[] = [
     {
       icon: <BrushRoundedIcon />,
@@ -183,7 +181,17 @@ export default function Canvas({ isNew }: CanvasProps) {
     },
     {
       icon: <UndoRoundedIcon />,
-      onClick: () => {},
+      onClick: () => {
+        if (canvasRef.current) {
+          dispatch(
+            undo({
+              width: canvasRef.current.width,
+              height: canvasRef.current.height,
+              context: canvasRef.current.getContext("2d")!,
+            })
+          );
+        }
+      },
     },
     { icon: <RedoRoundedIcon />, onClick: () => {} },
     {
@@ -243,7 +251,12 @@ export default function Canvas({ isNew }: CanvasProps) {
       </CanvasToolbar>
 
       <CanvasContainer>
-        <CanvasBlock ref={canvasRef} width={600} height={400} />
+        <CanvasBlock
+          onMouseDown={() => mouseDownHandler()}
+          ref={canvasRef}
+          width={600}
+          height={400}
+        />
       </CanvasContainer>
       <ModalAsk
         isOpen={saveModalIsOpen}

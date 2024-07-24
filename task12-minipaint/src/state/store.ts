@@ -3,6 +3,7 @@ import authInfoReducer from "./authInfo/authInfoSlice.ts";
 import snackbarReducer from "./snackbar/snackbarSlice.ts";
 import toolReducer from "./tool/toolSlice.ts";
 import projectsReducer from "./projects/projectsSlice.ts";
+import canvasUndoReducer from "./canvasUndo/canvasUndoSlice.ts";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     snackbar: snackbarReducer,
     tool: toolReducer,
     projects: projectsReducer,
+    canvasUndo: canvasUndoReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
