@@ -6,7 +6,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Suspense, useEffect, useState } from "react";
-import StorageService from "../../services/StorageService";
+import * as StorageService from "../../services/StorageService";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
@@ -14,7 +14,7 @@ import DrawRoundedIcon from "@mui/icons-material/DrawRounded";
 import { Link } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
-import ProjectsService from "../../services/ProjectsService";
+import * as ProjectsService from "../../services/ProjectsService";
 import { setProjects } from "../../state/projects/projectsSlice";
 
 export default function ProjectCard({ project }: { project: Project }) {

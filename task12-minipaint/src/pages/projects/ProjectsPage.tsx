@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
 import { Suspense, useEffect } from "react";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
-import ProjectsService from "../../services/ProjectsService";
+import * as ProjectsService from "../../services/ProjectsService";
 import { setProjects } from "../../state/projects/projectsSlice";
 import { Container } from "@mui/material";
 import ProjectsList from "../../components/projects/ProjectsList";
@@ -18,13 +18,13 @@ export default function ProjectsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!authInfo.isLoading) {
-          const { data, error } = await ProjectsService.getAllUserProjects(
-            authInfo.userId
-          );
-          if (data) dispatch(setProjects(data));
-          else throw new Error(error.message);
-        }
+        // if (!authInfo.isLoading) {
+        const { data, error } = await ProjectsService.getAllUserProjects(
+          authInfo.userId
+        );
+        if (data) dispatch(setProjects(data));
+        else throw new Error(error.message);
+        // }
       } catch (err) {
         if (err instanceof Error) {
           dispatch(setSnackbarProps({ severity: "error", text: err.message }));

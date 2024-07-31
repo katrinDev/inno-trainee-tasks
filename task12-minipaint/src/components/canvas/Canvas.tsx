@@ -27,14 +27,12 @@ import Rectangle from "../../tools/Rectangle";
 import Circle from "../../tools/Circle";
 import Eraser from "../../tools/Eraser";
 import Line from "../../tools/Line";
-import StorageService from "../../services/StorageService";
+import * as StorageService from "../../services/StorageService";
 import { RootState } from "../../state/store";
 import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { pushToUndo, redo, undo } from "../../state/canvasUndo/canvasUndoSlice";
-import ProjectsService from "../../services/ProjectsService";
-import { setProjects } from "../../state/projects/projectsSlice";
 
 type ToolButton = {
   icon: React.ReactElement;

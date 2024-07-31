@@ -15,8 +15,8 @@ import {
   setCurrentPrName,
   setProjects,
 } from "../../state/projects/projectsSlice";
-import StorageService from "../../services/StorageService";
-import ProjectsService from "../../services/ProjectsService";
+import * as StorageService from "../../services/StorageService";
+import * as ProjectsService from "../../services/ProjectsService";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";

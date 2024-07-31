@@ -11,7 +11,7 @@ import { Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { CREATE_PROJECT, PROJECTS } from "../../router/paths";
-import AuthService from "../../services/AuthService";
+import * as AuthService from "../../services/AuthService";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 
 const ToolbarContainer = styled(Container)(() => ({

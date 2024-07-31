@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../state/store";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
-import AuthService from "../../services/AuthService";
+import * as AuthService from "../../services/AuthService";
 
 export type SignUpForm = SignInForm & {
   fullName: string;
