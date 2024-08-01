@@ -8,6 +8,10 @@ export async function getAllUserProjects(userId: string) {
   return supabase.from("projects").select("*").eq("user_id", userId);
 }
 
+export async function getProjectById(id: string) {
+  return supabase.from("projects").select("*").eq("id", id);
+}
+
 export async function deleteFile(fileName: string) {
   return supabase.from("projects").delete().eq("file_name", fileName);
 }
