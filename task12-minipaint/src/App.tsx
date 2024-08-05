@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { supabase } from "./supabase/supabaseClient";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/AppRouter";
@@ -11,16 +11,14 @@ import Spinner from "./components/utils/Spinner";
 
 function App() {
   const snackbarProps = useSelector((state: RootState) => state.snackbar);
+  const authInfo = useSelector((state: RootState) => state.authInfo);
   const dispatch = useDispatch<AppDispatch>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event) => {
-      setIsLoading(true);
       dispatch(updateUserAuthInfo());
-      setIsLoading(false);
     });
 
     return () => subscription.unsubscribe();
@@ -37,7 +35,7 @@ function App() {
     dispatch(closeSnackbar());
   };
 
-  return isLoading ? (
+  return authInfo.isLoading ? (
     <Spinner />
   ) : (
     <>

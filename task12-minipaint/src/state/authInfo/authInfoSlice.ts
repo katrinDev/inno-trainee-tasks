@@ -11,16 +11,16 @@ type UserInfo = {
   userId: string;
   email: string;
   fullName: string;
-  isEmailVerified: boolean;
   isUserAuthorized: boolean;
+  isLoading: boolean;
 };
 
 const initialState: UserInfo = {
   userId: "",
   email: "",
   fullName: "",
-  isEmailVerified: false,
   isUserAuthorized: false,
+  isLoading: true,
 };
 
 const userSlice = createSlice({
@@ -28,17 +28,20 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(
-      updateUserAuthInfo.fulfilled,
-      (state, action: PayloadAction<User | null>) => {
-        state.isUserAuthorized = !!action.payload;
-        state.isEmailVerified = !!action.payload?.email_confirmed_at;
-
-        state.userId = action.payload?.id ?? "";
-        state.email = action.payload?.email ?? "";
-        state.fullName = action.payload?.user_metadata.full_name ?? "";
-      }
-    );
+    builder
+      .addCase(updateUserAuthInfo.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        updateUserAuthInfo.fulfilled,
+        (state, action: PayloadAction<User | null>) => {
+          state.isUserAuthorized = !!action.payload;
+          state.userId = action.payload?.id ?? "";
+          state.email = action.payload?.email ?? "";
+          state.fullName = action.payload?.user_metadata.full_name ?? "";
+          state.isLoading = false;
+        }
+      );
   },
 });
 

@@ -41,6 +41,7 @@ export default function SignIn() {
   } = useForm<SignInForm>();
 
   const dispatch = useDispatch<AppDispatch>();
+
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -54,13 +55,14 @@ export default function SignIn() {
         setIsLoading(false);
         if (error) throw new Error(error.message);
 
-        navigate(PROJECTS);
         dispatch(
           setSnackbarProps({
             severity: "success",
             text: `Welcome, ${data.user.user_metadata.full_name}`,
           })
         );
+
+        navigate(PROJECTS);
       } catch (err) {
         if (err instanceof Error) {
           dispatch(
