@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
 import {
@@ -21,7 +21,6 @@ import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import Spinner from "../utils/Spinner";
 
 type ModalAskProps = {
   isOpen: boolean;
@@ -85,13 +84,14 @@ export default function ModalAsk({
     formData,
     event
   ) => {
+    setIsOpen(false);
     event?.preventDefault();
 
     if (Object.keys(errors).length === 0) {
-      setIsLoading(true);
       dispatch(setCurrentPrName(formData.projectName));
       try {
         if (canvasRef.current) {
+          setIsLoading(true);
           canvasRef.current.toBlob(async (blob) => {
             const { data, error } = await StorageService.fileUpload(blob!);
 
@@ -104,6 +104,7 @@ export default function ModalAsk({
                 file_name: fileName,
                 project_name: formData.projectName,
                 user_id: userId,
+                updated_at: new Date().toISOString(),
               });
 
             if (dbError) throw new Error(dbError.message);
@@ -111,6 +112,7 @@ export default function ModalAsk({
             await fetchProjects();
             navigate(`/projects/${dbData[0].id}`);
 
+            setIsLoading(false);
             dispatch(
               setSnackbarProps({
                 severity: "success",
@@ -124,7 +126,6 @@ export default function ModalAsk({
           dispatch(setSnackbarProps({ severity: "error", text: err.message }));
         }
       }
-      setIsLoading(false);
     }
   };
 
@@ -132,9 +133,7 @@ export default function ModalAsk({
     reset();
   }, [isSubmitSuccessful]);
 
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <StyledModal
       open={isOpen}
       onClose={() => setIsOpen(false)}
@@ -172,6 +171,7 @@ export default function ModalAsk({
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            disabled={isLoading}
           >
             Confirm
           </Button>

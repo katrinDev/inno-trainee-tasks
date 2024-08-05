@@ -3,13 +3,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 type ProjectsSlice = {
   projects: Project[];
   currentProject: Project | null;
-  updated: boolean;
 };
 
 const initialState: ProjectsSlice = {
   projects: [],
   currentProject: null,
-  updated: false,
 };
 
 const projectsSlice = createSlice({
@@ -27,12 +25,21 @@ const projectsSlice = createSlice({
         state.currentProject.project_name = action.payload;
       }
     },
-    setUpdated: (state, action: PayloadAction<boolean>) => {
-      state.updated = action.payload;
+    updateCurrentProject: (state, action: PayloadAction<Project | null>) => {
+      const updatedProjects = state.projects.map((proj) =>
+        proj.id === state.currentProject?.id ? action.payload : proj
+      );
+
+      state.projects = updatedProjects as Project[];
     },
   },
 });
 
-export const { setProjects, setCurrentProject, setCurrentPrName, setUpdated } =
-  projectsSlice.actions;
+export const {
+  setProjects,
+  setCurrentProject,
+  setCurrentPrName,
+  updateCurrentProject,
+} = projectsSlice.actions;
+
 export default projectsSlice.reducer;

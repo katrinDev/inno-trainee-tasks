@@ -22,22 +22,24 @@ export default function ProjectCard({ project }: { project: Project }) {
   const email = useSelector((state: RootState) => state.authInfo.email);
   const dispatch = useDispatch<AppDispatch>();
   const userId = useSelector((state: RootState) => state.authInfo.userId);
+  const [isDeleteLoading, setIsDeleteLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function getUrl() {
       const { data } = await StorageService.getFileUrl(project.file_name);
 
-      setProjectUrl(data.publicUrl);
+      setProjectUrl(
+        data.publicUrl + `?t=${new Date(project.updated_at).getTime()}`
+      );
     }
 
     getUrl();
-  }, []);
+  }, [project]);
 
   const deleteProject = async () => {
     try {
-      const { data, error } = await StorageService.deleteFile(
-        project.file_name
-      );
+      setIsDeleteLoading(true);
+      const { error } = await StorageService.deleteFile(project.file_name);
 
       if (error) throw new Error(error.message);
 
@@ -60,6 +62,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           text: `Project ${project.project_name} was deleted successfully`,
         })
       );
+
+      setIsDeleteLoading(false);
     } catch (err) {
       if (err instanceof Error) {
         dispatch(setSnackbarProps({ severity: "error", text: err.message }));
@@ -67,7 +71,9 @@ export default function ProjectCard({ project }: { project: Project }) {
     }
   };
 
-  return (
+  return isDeleteLoading ? (
+    <Spinner />
+  ) : (
     <Suspense fallback={<Spinner />}>
       <Card
         sx={{

@@ -28,11 +28,13 @@ import Circle from "../../tools/Circle";
 import Eraser from "../../tools/Eraser";
 import Line from "../../tools/Line";
 import * as StorageService from "../../services/StorageService";
+import * as ProjectsService from "../../services/ProjectsService";
 import { RootState } from "../../state/store";
 import Spinner from "../utils/Spinner";
 import ModalAsk from "../projects/SaveProjectModal";
 import { setSnackbarProps } from "../../state/snackbar/snackbarSlice";
 import { pushToUndo, redo, undo } from "../../state/canvasUndo/canvasUndoSlice";
+import { updateCurrentProject } from "../../state/projects/projectsSlice";
 
 type ToolButton = {
   icon: React.ReactElement;
@@ -41,9 +43,15 @@ type ToolButton = {
 
 type CanvasProps = {
   isNew: boolean;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Canvas({ isNew }: CanvasProps) {
+export default function Canvas({
+  isNew,
+  isLoading,
+  setIsLoading,
+}: CanvasProps) {
   const dispatch = useDispatch();
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,9 +61,6 @@ export default function Canvas({ isNew }: CanvasProps) {
 
   let colorBeforeEraser = useRef<string | CanvasGradient | CanvasPattern>("");
   let isPrevEraser = useRef<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const userId = useSelector((state: RootState) => state.authInfo.userId);
 
   const [saveModalIsOpen, setSaveModalIsOpen] = useState<boolean>(false);
 
@@ -72,7 +77,8 @@ export default function Canvas({ isNew }: CanvasProps) {
 
         const img = new Image();
         img.crossOrigin = "anonymous";
-        img.src = publicUrl;
+        img.src =
+          publicUrl + `?t=${new Date(currentProject.updated_at).getTime()}`;
         img.onload = () => {
           if (context) {
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -102,13 +108,21 @@ export default function Canvas({ isNew }: CanvasProps) {
   const editProjectHandle = async () => {
     try {
       if (canvasRef.current && currentProject) {
+        setIsLoading(true);
         canvasRef.current.toBlob(async (blob) => {
-          const { data, error } = await StorageService.updateFile(
+          const { error } = await StorageService.updateFile(
             currentProject.file_name,
             blob!
           );
 
           if (error) throw new Error(error.message);
+
+          const { data: dbData, error: dbError } =
+            await ProjectsService.updateProject(currentProject.id);
+
+          if (dbError) throw new Error(dbError.message);
+
+          dispatch(updateCurrentProject(dbData[0]));
 
           dispatch(
             setSnackbarProps({
@@ -116,6 +130,8 @@ export default function Canvas({ isNew }: CanvasProps) {
               text: `Project '${currentProject.project_name}' was updated successfully`,
             })
           );
+
+          setIsLoading(false);
         });
       }
     } catch (err) {
@@ -206,7 +222,11 @@ export default function Canvas({ isNew }: CanvasProps) {
       },
     },
     {
-      icon: <SaveRoundedIcon sx={{ color: "success.main" }} />,
+      icon: (
+        <SaveRoundedIcon
+          sx={{ color: isLoading ? "grey.500" : "success.main" }}
+        />
+      ),
       onClick: () => {
         if (isNew) setSaveModalIsOpen(true);
         else editProjectHandle();
@@ -227,6 +247,7 @@ export default function Canvas({ isNew }: CanvasProps) {
                 : { cursor: "pointer" }
             }
             onClick={button.onClick}
+            disabled={isLoading}
           >
             {button.icon}
           </IconButton>

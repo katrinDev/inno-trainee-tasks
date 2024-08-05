@@ -15,3 +15,12 @@ export async function getProjectById(id: string) {
 export async function deleteFile(fileName: string) {
   return supabase.from("projects").delete().eq("file_name", fileName);
 }
+
+export async function updateProject(id: string) {
+  const currentTime = new Date().toISOString();
+  return supabase
+    .from("projects")
+    .update({ updated_at: currentTime })
+    .eq("id", id)
+    .select();
+}
