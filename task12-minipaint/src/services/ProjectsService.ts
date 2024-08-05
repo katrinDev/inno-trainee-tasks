@@ -1,0 +1,26 @@
+import { supabase } from "../supabase/supabaseClient";
+
+export async function insertProject(project: AddProject) {
+  return supabase.from("projects").insert(project).select();
+}
+
+export async function getAllUserProjects(userId: string) {
+  return supabase.from("projects").select("*").eq("user_id", userId);
+}
+
+export async function getProjectById(id: string) {
+  return supabase.from("projects").select("*").eq("id", id);
+}
+
+export async function deleteFile(fileName: string) {
+  return supabase.from("projects").delete().eq("file_name", fileName);
+}
+
+export async function updateProject(id: string) {
+  const currentTime = new Date().toISOString();
+  return supabase
+    .from("projects")
+    .update({ updated_at: currentTime })
+    .eq("id", id)
+    .select();
+}
